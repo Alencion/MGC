@@ -4,5 +4,9 @@ body {
 }
 
 a {
+  display: block;
   color: #00B7FF;
+}
+input{
+  display: block;
 }
