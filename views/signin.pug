@@ -1,7 +1,11 @@
 extends layout
 
 block content
+  .wrapper-signin
     form
-        input(type="text" placeholder="User Id")
-        input(type="password" placeholder="User Password")
-        input(type="submit")
+      h2.signin-logo Sign-In
+      span.signin-userid User ID
+      input(type="text" placeholder="User ")
+      span.signin-password Password
+      input(type="password" placeholder="User Password")
+      input(type="submit")
