@@ -1,11 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-body{
-    background-color: #f4f3f3;
-    font: 14px Ubuntu, Helvetica, "KBIZ한마음고딕 B", sans-serif;
-}
+@import "style.css";
 
 /* Index logo */
 .index-logo{
@@ -65,7 +58,7 @@ body{
     position: absolute;
     display: block;
     width: 87px;
-    height: 5px;
+    height: 10px;
     margin: 0 auto;
     transform: translate(25px, 28px) scaleX(0);
     background-color: #fff;
@@ -104,6 +97,9 @@ body{
 }
 .content ul{
     margin: 40px 40px;
+}
+.content ul li{
+    display: block;
 }
 /* Content > Item */
 .content .item{
