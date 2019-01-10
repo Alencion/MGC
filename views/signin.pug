@@ -2,8 +2,9 @@ extends signin-layout
 
 block content
   img(src="/images/signin-bg.jpg")
+
   .wrapper-signin
-    form.signin(action="/..")
+    form#signin.signin(method="post" action="/auth/signin")
       h2.signin-logo Steam
       .userid
         input(type="text" name="" required="")
