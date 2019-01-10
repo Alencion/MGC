@@ -2,7 +2,7 @@ doctype html
 html
     head
         title= title
-        link(rel='stylesheet', href='/stylesheets/index.css')
+        link(rel='stylesheet', href='/stylesheets/signup.css')
         link(rel='stylesheet', href='/stylesheets/header.css')
         link(href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet")
     body
@@ -12,7 +12,7 @@ html
                     a.home(href="/") Home
                     a.about(href="#") About
                     .auth
-                        a(href="/auth/signin") Sign-In
-                        a(href="/auth/signup") Sign-Up
+                        a(href="./auth/signin") Sign-In
+                        a(href="./auth/signup") Sign-Up
         block content
         block footer
