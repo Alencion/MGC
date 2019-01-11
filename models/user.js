@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
             unique: true,
         },
         client_pw: {
-            type: DataTypes.STRING(20),
+            type: DataTypes.STRING(100),
             allowNull: false,
         },
         name: {
@@ -19,5 +19,6 @@ module.exports = (sequelize, DataTypes) => {
         },
     },{
         timestamps:false,
+       // tableName:'user',
     });
 }

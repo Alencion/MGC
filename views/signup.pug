@@ -5,15 +5,15 @@ block content
         form#signup.signup(method="post" action="/auth/signup")
             h2 Sign Up
             label Username
-            input(type="text" placeholder="Username" name="username" required)
+            input(type="text" placeholder="Username" name="client_id" required)
             label Password
-            input#password(type="password" placeholder="User Password" name="password" required)
+            input#password(type="password" placeholder="User Password" name="client_pw" required)
             label Confirm Password
-            input(type="password" placeholder="Confirm Password" name="password-cf" required)
+            input(type="password" placeholder="Confirm Password" name="client_pw_cf" required)
             label Name
             input(type="text" placeholder="name" name="name" required)
             label e-mail
-            input(type="email" placeholder="email" name="email" required)
+            input(type="email" placeholder="email" name="e_mail" required)
             input(type="submit" value="Register")
         .signup-side
             img(src="/images/index-logo.png")

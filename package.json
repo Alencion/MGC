@@ -7,6 +7,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^3.0.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
     "debug": "~2.6.9",
@@ -17,6 +18,8 @@
     "morgan": "^1.9.1",
     "mysql2": "^1.6.4",
     "oracledb": "^3.0.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "pug": "^2.0.0-beta11",
     "sequelize": "^4.42.0"
   }

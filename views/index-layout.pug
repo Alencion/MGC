@@ -11,9 +11,14 @@ html
                 .header
                     a.home(href="/") Home
                     a.about(href="#") About
-                    .auth
+                    .auth#loggedin
                         a(href="/auth/signin") Sign-In
                         a(href="/auth/signup") Sign-Up
+                    .auth#notloggedin
+                        a(href="/auth/signin") Sign-In
+                        a(href="/auth/signup") Sign-Up
+
+
 
         block content
         block footer
