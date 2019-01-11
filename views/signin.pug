@@ -7,13 +7,17 @@ block content
     form#signin.signin(method="post" action="/auth/signin")
       h2.signin-logo Steam
       .userid
-        input(type="text" name="" required="")
+        input(type="text" name="client_id" required)
         label Username
       .password
-        input(type="password" name="" required="")
+        input(type="password" name="client_pw" required)
         label Password
       a.lost-pw(href="#") forget your password?
+      if loginError
+        .error-message= loginError
       input(type="submit" value="Sign In")
 
     span.signin-signup Don't have an account?
       a(href="./signup") Sign Up
+
+

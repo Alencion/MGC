@@ -6,8 +6,8 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Steam' ,
+    loginError:req.flash('loginError'),
    // username : req.user.name
   });
 });
-
 module.exports = router;

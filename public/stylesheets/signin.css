@@ -99,5 +99,9 @@ img{
     display: inline;
 }
 
-
+.error-message{
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
 

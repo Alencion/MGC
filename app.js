@@ -5,11 +5,12 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var logger = require('morgan');
 var passport = require('passport');
+var flash = require('connect-flash');
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var authoRouter = require('./routes/authorization');
+var authRouter = require('./routes/authorization');
 var userRouter = require('./routes/userview');
 var boardRouter = require('./routes/board');
 var articleRouter = require('./routes/article');
@@ -48,18 +49,23 @@ app.use(session({
   },
 }))
 
+app.use(flash());
+//use passport module
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 
 // router
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/auth', authoRouter);
+app.use('/auth', authRouter);
 app.use('/mypage', userRouter);
 app.use('/board', boardRouter);
 app.use('/article', articleRouter);
+app.use('/authorization',authRouter);
 
-//use passport module
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 
 
