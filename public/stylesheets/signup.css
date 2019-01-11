@@ -51,9 +51,16 @@ body{
     border: none;
     border-bottom: 1.2px solid black;
     outline: none;
-    transition: .5s;
-}
 
+}
+#username{
+    display: inline-block;
+}
+.error-message{
+    margin: 0 20px;
+    display: inline;
+    color: red;
+}
 #password{
     margin-bottom: 15px;
 }
@@ -64,6 +71,7 @@ body{
     border-bottom: none;
     width: 300px;
     border-radius: 3px;
+    transition: color .5s;
 }
 .signup input[type="submit"]:hover{
     background-color: #2F5597;

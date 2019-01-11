@@ -11,10 +11,16 @@ html
                 .header
                     a.home(href="/") Home
                     a.about(href="#") About
+                    if isNotSignedIn
+                        .auth#isNotloggedin
+                            a(href="/auth/signin") Sign-In
+                            a(href="/auth/signup") Sign-Up
+                    if isSignedIn
+                        .auth#loggedin
+                            label #{username}님 환영합니다.
+                            a(href="/mypage") My Page
+                            a(href="/auth/signout") signout
 
-                    .auth#loggedin
-                        a(href="/auth/signin") Sign-In
-                        a(href="/auth/signup") Sign-Up
 
 
         block content

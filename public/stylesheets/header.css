@@ -20,3 +20,8 @@
 .auth a{
     margin-right: 20px;
 }
+.auth label{
+    display: inline-block;
+    position: relative;
+    transform: translateX(-20px);
+}

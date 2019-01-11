@@ -13,8 +13,14 @@ router.get('/signin', function (req, res, next) {
     });
 });
 router.get('/signup', function (req, res, next) {
-    res.render('signup');
-
+    res.render('signup',{
+        signError:req.flash('signError'),
+    });
+});
+router.get('/signout', isLoggedIn, (req, res)=>{
+    req.logout();
+    req.session.destroy();
+    res.redirect('/');
 });
 
 /* POST SignIn, SignUp page. */
@@ -47,7 +53,7 @@ router.post('/signup',isNotLoggedIn, async(req, res, next)=>{
         var exUser = await User.find({where: {client_id}});
         if (exUser) {
             req.flash('signError', '이미 가입된 아이디입니다.');
-            return res.redirect('/signup');
+            return res.redirect('/auth/signup');
         }
         var hash = await bcrypt.hash(client_pw, 12);
         await User.create({
