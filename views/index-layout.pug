@@ -4,6 +4,7 @@ html
         title= title
         link(rel='stylesheet', href='/stylesheets/index.css')
         link(rel='stylesheet', href='/stylesheets/header.css')
+        link(rel='stylesheet', href='/stylesheets/footer.css')
         link(href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet")
     body
         block header
@@ -19,9 +20,11 @@ html
                         .auth#loggedin
                             label #{username}님 환영합니다.
                             a(href="/mypage") My Page
+                            a(href="http://computer.cnu.ac.kr/") 과홈페이지
                             a(href="/auth/signout") signout
-
-
 
         block content
         block footer
+            .wrapper-footer
+                .footer
+                    label Copyright(C)2019 Steam All Rights Reserved.

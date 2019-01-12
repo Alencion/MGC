@@ -2,20 +2,27 @@ doctype html
 html
     head
         title= title
-        link(rel='stylesheet', href='/stylesheets/signup.css')
+        link(rel='stylesheet', href='/stylesheets/board.css')
         link(rel='stylesheet', href='/stylesheets/header.css')
         link(rel='stylesheet', href='/stylesheets/footer.css')
         link(href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet")
-
     body
         block header
             .wrapper-header
                 .header
                     a.home(href="/") Home
                     a.about(href="#") About
-                    .auth
-                        a(href="./signin") Sign-In
-                        a(href="./signup") Sign-Up
+                    if isNotSignedIn
+                        .auth#isNotloggedin
+                            a(href="/auth/signin") Sign-In
+                            a(href="/auth/signup") Sign-Up
+                    if isSignedIn
+                        .auth#loggedin
+                            label #{username}님 환영합니다.
+                            a(href="/mypage") My Page
+                            a(href="http://computer.cnu.ac.kr/") 과홈페이지
+                            a(href="/auth/signout") signout
+
         block content
         block footer
             .wrapper-footer
