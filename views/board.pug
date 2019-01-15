@@ -1,19 +1,20 @@
 extends board-layout
 
 block content
-    .wrapper-menu
-        ul.menu
-            li
-                a#commnunity(href="./university") 대학게시판
-            li
-                a#board(href="./") Board
-            li
-                a#potal(href="http://portal.cnu.ac.kr/") Portal
-            li
-                a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
+    .container-menu
+        .wrapper-menu
+            ul.menu
+                li
+                    a#commnunity(href="./university") 대학게시판
+                li
+                    a#board(href="./") Board
+                li
+                    a#potal(href="http://portal.cnu.ac.kr/") Portal
+                li
+                    a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
     .board
         h2= title
-        table
+        table(cellspacing="0")
             thead
                 tr.table_head
                     th.id Index
@@ -105,3 +106,4 @@ block content
                     a(href="#") 4
                 li
                     a(href="#") 5
+            input#write-btn(type="button" value="글쓰기" onclick="btn()")
