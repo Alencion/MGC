@@ -1,7 +1,23 @@
-extends layout
+extends signin-layout
 
 block content
-    form
-        input(type="text" placeholder="User Id")
-        input(type="password" placeholder="User Password")
-        input(type="submit")
+  img(src="/images/signin-bg.jpg")
+
+  .wrapper-signin
+    form#signin.signin(method="post" action="/auth/signin")
+      h2.signin-logo Steam
+      .userid
+        input(type="text" name="client_id" required)
+        label Username
+      .password
+        input(type="password" name="client_pw" required)
+        label Password
+      a.lost-pw(href="#") forget your password?
+      if loginError
+        .error-message= loginError
+      input(type="submit" value="Sign In")
+
+    span.signin-signup Don't have an account?
+      a(href="./signup") Sign Up
+
+

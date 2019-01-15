@@ -1,12 +1,8 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+*{
+  margin: 0;
+  padding: 0;
 }
-
-a {
-  display: block;
-  color: #00B7FF;
-}
-input{
-  display: block;
+body{
+  background-color: #f4f3f3;
+  font: 14px Ubuntu, Helvetica, "KBIZ한마음고딕 B", sans-serif;
 }

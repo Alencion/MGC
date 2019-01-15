@@ -1,9 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var {User} = require('../models');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  if(req.isAuthenticated()) {
+    User = req.user;
+  }
+  res.render('index', {
+    title: 'Steam' ,
+    isSignedIn: req.isAuthenticated(),
+    isNotSignedIn: !req.isAuthenticated(),
+    username : User.name,
+  });
 });
-
 module.exports = router;
