@@ -7,7 +7,7 @@
 #### 기능 ####
 
 - index.js (index.pug)
-- authorization.js (signin, signup)
+- authorization.js (signin, signup, signout)
 - userview.js (mypage)
 - article.js (article, wirte)
 - board.js (board)
@@ -15,7 +15,7 @@
 #### view ####
 
 - index – Index.js
-- authorization – signin, (post_signin), signup, (post_signup)
+- authorization – signin, (post_signin), signup, (post_signup) 
 - userview – mypage
 - article – article, write, (post_write)
 - board - board
