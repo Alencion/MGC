@@ -65,7 +65,7 @@ app.use('/auth', authRouter);
 app.use('/mypage', userRouter);
 app.use('/board', boardRouter);
 app.use('/article', articleRouter);
-app.use('/authorization',authRouter);
+app.use('/authorization', authRouter);
 
 
 

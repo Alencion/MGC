@@ -1,7 +1,9 @@
-extends layout
+extends write-layout
 
 block content
-    form
-        input(type="text" placeholder="title")
-        textarea(rows"4")
-        input(type="submit")
+    .wrapper-write
+        label Write
+        form.write(method="post" action="./write")
+            input.title(type="text" name="title" placeholder="Title" required)
+            textarea.descript(name="Description" contenteditable="true")
+            input.submit(type="submit")
