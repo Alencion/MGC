@@ -37,6 +37,7 @@ router.post('/write', isLoggedIn, upload.none(), async(req, res, next)=>{
             view: 0,
             user_id : req.user.id,
         });
+        console.log(req.body.description);
         res.redirect('/board');
     }catch(error){
         console.error(error);

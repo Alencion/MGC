@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
         description: {
-            type: DataTypes.BLOB('long'),
+            type: DataTypes.TEXT('long'),
             allowNull: true,
         },
         view: {
