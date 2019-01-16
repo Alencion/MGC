@@ -1,4 +1,5 @@
 var local = require('./localStrategy');
+var lostpw = require('./lostpwStrategy');
 var { User } = require('../models');
 
 module.exports = (passport) => {
@@ -12,4 +13,5 @@ module.exports = (passport) => {
             .catch(err => done(err));
     });
     local(passport);
+    //lostpw(passport);
 }

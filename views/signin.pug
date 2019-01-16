@@ -12,12 +12,10 @@ block content
       .password
         input(type="password" name="client_pw" required)
         label Password
-      a.lost-pw(href="#") forget your password?
+      a.lost-pw(href="./lostpw") forget your password?
       if loginError
         .error-message= loginError
       input(type="submit" value="Sign In")
 
     span.signin-signup Don't have an account?
       a(href="./signup") Sign Up
-
-

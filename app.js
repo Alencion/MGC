@@ -6,6 +6,8 @@ var session = require('express-session');
 var logger = require('morgan');
 var passport = require('passport');
 var flash = require('connect-flash');
+//var asyncc = require('async');
+//var crypto = require('crypto');
 
 
 var indexRouter = require('./routes/index');
