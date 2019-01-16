@@ -23,6 +23,19 @@ router.get('/id=:id' , async(req, res, next) => {
     if(req.isAuthenticated()) {
         User = req.user;
     }
+    Article.findOne({where:{id:Article.id}})
+        .then((posts)=>{
+            res.render('article', {
+                isSignedIn: req.isAuthenticated(),
+                isNotSignedIn: !req.isAuthenticated(),
+                username: User.name,
+                articleid: Article.id,
+            });
+        })
+        .catch((error)=> {
+            console.error(error);
+            next(error);
+        });
     res.render('article',{
         isSignedIn: req.isAuthenticated(),
         isNotSignedIn: !req.isAuthenticated(),
@@ -34,6 +47,11 @@ router.get('/id=:id' , async(req, res, next) => {
         description : article.description,
     });
 });
+router.post('/id=:id', (req, res, next)=>{
+    console.log(Article.id);
+})
+
+//Write Function Rotuer!
 router.get('/write', function (req, res, next) {
     if(req.isAuthenticated()) {
         User = req.user;
