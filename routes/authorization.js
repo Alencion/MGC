@@ -37,7 +37,6 @@ res.redirect('/');
 router.post('/signin', isNotLoggedIn, (req, res, next)=>{
     passport.authenticate('local', (authError, user ,info)=>{
         if(authError){
-            console.error(authError);
             return next(authError);
         }
         if(!user){
@@ -47,7 +46,6 @@ router.post('/signin', isNotLoggedIn, (req, res, next)=>{
         return req.login(user, (loginError)=>{
 
             if(loginError){
-                console.error(loginError);
                 return next(loginError);
             }
             return res.redirect('/');

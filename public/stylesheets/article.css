@@ -1,0 +1,91 @@
+@import "style.css";
+/* Menu */
+.container-menu{
+    background-color: #2F5597;
+    text-align: center;
+    height: 80px;
+}
+.wrapper-menu{
+    margin: 0 auto;
+    width: 1000px;
+    display: inline-block;
+}
+.menu{
+    float: right;
+    list-style: none;
+    display: inline-block;
+    /*height: 80px;*/
+}
+.menu li{
+    float: left;
+    height: 80px;
+    overflow: hidden;
+}
+.menu li a{
+    margin: 27px 0;
+    display: inline-block;
+    text-decoration: none;
+    width: 135px;
+    height: 26px;
+    border-right : 2px solid #fff;
+    line-height: 26px;
+    color: #fff;
+    font-size: 1rem;
+    transition: .3s;
+}
+.menu li:last-child a{
+    border-right: none;
+}
+.menu li a:hover{
+    font-size: 1.1rem;
+}
+.menu li a:before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 87px;
+    height: 10px;
+    margin: 0 auto;
+    transform: translate(25px, 47px) scaleX(0);
+    background-color: #fff;
+    transition: ease .3s;
+}
+.menu li a:hover:before{
+    transform: translate(25px, 47px) scaleX(1);
+}
+
+/* Article */
+.wrapper-article{
+
+}
+.article{
+    margin: 0 auto;
+    display: block;
+    width: 1000px;
+    min-height: 300px;
+    background-color: #fff;
+    border-spacing: 0px;
+}
+.article .title{
+    margin: 20px;
+    padding-left: 20px;
+    border-left: 5px solid black;
+    display: inline-block;
+    font-size: 1.7rem;
+    width: 935px;
+}
+.article .info{
+    padding-right: 20px;
+    float: right;
+}
+.article .info p{
+    display: inline-block;
+    padding: 10px;
+}
+.article .descript{
+    margin: 0 20px ;
+    padding: 35px 15px;
+    font-size: 1.15rem;
+    border-top: 1px dashed darkgray;
+    line-height: 2rem;
+}

@@ -7,6 +7,7 @@
     background-color: #4472C4;
     text-align: center;
     color: #fff;
+    transition: .5s;
 }
 .index-logo img{
     margin-top: 25px;
@@ -28,11 +29,13 @@
     background-color: #2F5597;
     text-align: center;
     height: 40px;
+
 }
 .menu{
     list-style: none;
     display: inline-block;
     height: 40px;
+    z-index: 2;
 }
 .menu li{
     float: left;
@@ -80,8 +83,11 @@
     display: inline-block;
     margin-top: 40px;
     width: 800px;
-    height: 300px;
-    border: 2px solid #e8e2db;
+    height: 280px;
+    border-top: 1.5px solid #e8e2db;
+    border-left: 1.5px solid #e8e2db;
+    border-right: 1.5px solid #e8e2db;
+
     position: relative;
 }
 .content .list-title{
@@ -109,7 +115,7 @@
 }
 .item span{
     display: inline-block;
-    font-size: .9rem;
+    font-size: .85rem;
     color: #63686e;
     transition: color 0.4s;
 }
@@ -118,7 +124,7 @@
 }
 .item .item-title{
     width: 520px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
@@ -145,4 +151,10 @@
 }
 .content .read-more:hover{
     background-color: #2F5597;
+}
+
+@media(max-width: 1000px){
+    .index-logo{
+        height: 0;
+    }
 }

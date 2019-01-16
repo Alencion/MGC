@@ -7,7 +7,6 @@ router.get('/', function (req, res, next) {
     if(req.isAuthenticated()) {
         User = req.user;
     }
-    console.log(req.isAuthenticated());
     res.render('board',{
         title : '자유게시판',
         isSignedIn: req.isAuthenticated(),
@@ -19,7 +18,6 @@ router.get('/university', function (req, res, next) {
     if(req.isAuthenticated()) {
         User = req.user;
     }
-    console.log(req.isAuthenticated());
     res.render('board',{
         title : '대학게시판',
         isSignedIn: req.isAuthenticated(),
@@ -27,6 +25,5 @@ router.get('/university', function (req, res, next) {
         username : User.name,
     });
 });
-
 
 module.exports = router;
