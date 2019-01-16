@@ -14,6 +14,7 @@ router.get('/', function (req, res, next) {
         username : User.name,
     });
 });
+/* GET university board page. */
 router.get('/university', function (req, res, next) {
     if(req.isAuthenticated()) {
         User = req.user;

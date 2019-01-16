@@ -1,13 +1,23 @@
 var express = require('express');
 var router = express.Router();
 var {User, Article} = require('../models');
-var path = require('path');
 var multer = require('multer');
 var {isLoggedIn, isNotLoggedIn} = require('./middlewares');
 
 
 /* GET article, write page. */
-router.get('/id=:id' , function (req, res, next) {
+router.get('/id=:id' , async(req, res, next) => {
+
+    try{
+        var id = req.params.id;
+        var article = await Article.find({where: { id }});
+        var id = article.user_id;
+        var writer = await User.find({where: { id }})
+    }
+    catch (error) {
+        console.error(error);
+        return next(error);
+    }
     if(req.isAuthenticated()) {
         User = req.user;
     }
@@ -15,6 +25,11 @@ router.get('/id=:id' , function (req, res, next) {
         isSignedIn: req.isAuthenticated(),
         isNotSignedIn: !req.isAuthenticated(),
         username : User.name,
+        article_title : article.title,
+        views : article.view,
+        date : article.created_date,
+        writer : writer.name,
+        description : article.description,
     });
 });
 router.get('/write', function (req, res, next) {
