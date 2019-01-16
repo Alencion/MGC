@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d175993-d03b-46dd-81ea-f9c8d1bac9f9" name="Default Changelist" comment="make forgot password">
-      <change afterPath="$PROJECT_DIR$/passport/lostpwStrategy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/lostpw-layout.pug" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/lostpw.pug" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/reset.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/passport/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/passport/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/authorization.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/authorization.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/signin.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/signin.pug" afterDir="false" />
-    </list>
+    <list default="true" id="3d175993-d03b-46dd-81ea-f9c8d1bac9f9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -271,7 +259,7 @@
       <workItem from="1547382792489" duration="1213000" />
       <workItem from="1547441899006" duration="5556000" />
       <workItem from="1547526915792" duration="27052000" />
-      <workItem from="1547601424787" duration="1742000" />
+      <workItem from="1547601424787" duration="2093000" />
     </task>
     <task id="LOCAL-00001" summary="fixed error">
       <created>1546599404057</created>
@@ -322,11 +310,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547197408640</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="make forgot password">
+      <created>1547603193357</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1547603193357</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126225000" />
+    <option name="totallyTimeSpent" value="126576000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="793" y="0" width="814" height="867" extended-state="0" />
