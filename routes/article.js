@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var {User} = require('../models');
+var {User, Article} = require('../models');
 
 /* GET article, write page. */
 router.get('/id=:id' , function (req, res, next) {
