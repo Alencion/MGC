@@ -26,8 +26,7 @@ router.get('/lostpw', function (req, res, next) {
         user:req.user
     });
 });
-router.get('/reset', function(req, res, next){
-    console.log(tmpUser.client_id);
+router.get('/reset', function(req, res, next){;
     res.render('reset',{
         user:req.user
     });
@@ -53,7 +52,6 @@ router.post('/signin', isNotLoggedIn, (req, res, next)=>{
             return res.redirect('/');
         });
     })(req, res, next);
-    //res.redirect('/');
 });
 router.post('/signup',isNotLoggedIn, async(req, res, next)=>{
     var {client_id, client_pw, name, e_mail} = req.body;
@@ -82,7 +80,6 @@ router.post('/signup',isNotLoggedIn, async(req, res, next)=>{
 router.post('/lostpw',isNotLoggedIn,  async (req, res, next)=> {
     try {
         exUser = await User.find({where: {e_mail: req.body.e_mail}});
-        //console.log(exUser);
         if (!exUser) {
             req.flash('loginError', '존재하지 않는 계정입니다.');
             return res.redirect('/auth/signin');
@@ -97,7 +94,7 @@ router.post('/lostpw',isNotLoggedIn,  async (req, res, next)=> {
 router.post('/reset', isNotLoggedIn, async(req,res,next)=>{
     try {
         if (!tmpUser) {
-            req.flash('loginError', '삐용삐용 에러입니다');
+            req.flash('loginError', '비밀번호 변경에 실패했습니다.');
             return res.redirect('/auth/signin');
         }
         var hash = await bcrypt.hash(req.body.password, 12);

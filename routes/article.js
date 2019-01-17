@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var {User, Article} = require('../models');
+var model = require('../models');
 var multer = require('multer');
 var {isLoggedIn, isNotLoggedIn} = require('./middlewares');
 
@@ -10,11 +11,9 @@ router.get('/id=:id' , async(req, res, next) => {
     try{
         //select article
         var id = req.params.id;
-        var article = await Article.find({where: { id }});
-        //select user to take article writer
-        var writer = await User.find({where: { id: article.user_id }});
-        //update view + 1
-        // Article.update({view: article.view+1 }, {where: {id}});
+        var article = await Article.find({where: { id }, include: [model.User]});
+        //update view + 1   , include: [User]
+        // Article.update({view: article.view+1 }, {where: {id},  returning: true});
     }
     catch (error) {
         console.error(error);
@@ -30,7 +29,7 @@ router.get('/id=:id' , async(req, res, next) => {
         article_title : article.title,
         view : article.view,
         created_date : article.created_date,
-        writer : writer.name,
+        writer : article.user.name,
         description : article.description,
     });
 });
@@ -52,7 +51,7 @@ router.post('/write', isLoggedIn, upload.none(), async(req, res, next)=>{
             title: req.body.title,
             description : req.body.description,
             view: 0,
-            user_id : req.user.id,
+            userId : req.user.id,
         });
         res.redirect('/board');
     }catch(error){
