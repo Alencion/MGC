@@ -15,7 +15,7 @@ img{
     left: 50%;
     transform: translate(-50%,-50%);
     width: 350px;
-    height: 500px;
+    /*height: 500px;*/
     /*color: #000;*/
 }
 .wrapper-signin * {
@@ -30,7 +30,7 @@ img{
     background-color: #fff;
     border-radius: 4px;
 }
-.signin h2 {
+.signin h2{
     margin-bottom : 120px;
     padding-left: 20px;
     text-align: left;
@@ -38,10 +38,10 @@ img{
     font-size: 1.7rem;
 }
 /* User name and Password */
-.userid, .password {
+.userid, .password, .email {
     margin: 25px 15px 0;
 }
-.signin input {
+.signin input{
     margin: 0;
     width: 270px;
     height: 30px;
@@ -50,7 +50,7 @@ img{
     outline: none;
     padding-left: 10px;
 }
-.userid label , .password label {
+.userid label , .password label, .email label {
     margin: 0;
     position: relative;
     top: -30px;
@@ -60,14 +60,14 @@ img{
     transform-origin: left;
     pointer-events: none;
 }
-.userid input:focus ~ label, .password input:focus ~ label,
-.userid input:valid ~ label, .password input:valid ~ label {
+.userid input:focus ~ label, .password input:focus ~ label, .email input:focus ~ label,
+.userid input:valid ~ label, .password input:valid ~ label, .email input:valid ~ label{
     transform: translate(-3px, -21px) scale(.8);
     color: #4472C4;
     font-weight: bold;
 }
-.userid input:focus, .password input:focus,
-.userid input:valid, .password input:valid {
+.userid input:focus, .password input:focus, .email input:focus,
+.userid input:valid, .password input:valid, .email input:valid {
     border-bottom-color: #4472C4;
 }
 /* Lost Password */
@@ -88,6 +88,9 @@ img{
 .signin input[type='submit']:hover {
     background-color: #2F5597;
     color: #fff;
+}
+#reset, .email{
+    margin-bottom: 30px;
 }
 
 /* Sign Up*/

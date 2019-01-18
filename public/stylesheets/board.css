@@ -61,6 +61,8 @@
     width: 1000px;
     background-color: #fff;
     border-spacing: 0px;
+    box-shadow: 0 0 11px 2px rgba(80,80,80,.2);
+
 }
 .board h2{
     margin: 20px;

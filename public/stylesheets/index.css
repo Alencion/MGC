@@ -5,23 +5,33 @@
     width: 100%;
     height: 250px;
     background-color: #4472C4;
-    text-align: center;
     color: #fff;
     transition: .5s;
 }
 .index-logo img{
     margin-top: 25px;
     width: 5rem;
-    position: relative;
-    transform: translateY(25px);
+    position: absolute;
+    top: 101px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: .5s;
 }
 .index-logo .title{
     font-size: 4rem;
+    transition: .5s;
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 .index-logo p{
     font-size: 1rem;
-    position: relative;
-    transform: translateY(-5px);
+    position: absolute;
+    top: 218px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: .5s;
 }
 
 /* Menu */
@@ -70,7 +80,9 @@
 .menu li a:hover:before{
     transform: translate(25px, 28px) scaleX(1);
 }
-
+.hamburger{
+    display: none;
+}
 /* Content */
 .content{
     margin: 0 auto;
@@ -78,6 +90,7 @@
     width: 1000px;
     box-sizing: content-box;
     text-align: center;
+    box-shadow: 0 0 11px 2px rgba(80,80,80,.2);
 }
 .content .section-list{
     display: inline-block;
@@ -155,6 +168,31 @@
 
 @media(max-width: 1000px){
     .index-logo{
+        text-align: left;
         height: 0;
+    }
+    .index-logo img{
+        width: 4rem;
+        margin: 0;
+        top: 81px;
+        left: 90px;
+    }
+    .index-logo .title{
+        text-align: left;
+        font-size: 2.5rem;
+        top: 71px;
+        left: 190px;
+    }
+    .index-logo p{
+        font-size: 1rem;
+        top: 98px;
+        left: 190px;
+    }
+    .wrapper-menu{
+        height: 80px;
+    }
+    .menu{
+        margin: 20px 0 ;
+        display: none;
     }
 }

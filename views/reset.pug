@@ -1,11 +1,14 @@
+extend signin-layout
+
 block content
-  form(method='POST' action='./reset')
-    legend Reset Password
-    .form-group
-      label(for='password') New Password
-      input.form-control(type='password', name='password', value='', placeholder='New password', autofocus=true)
-    .form-group
-      label(for='confirm') Confirm Password
-      input.form-control(type='password', name='confirm', value='', placeholder='Confirm password')
-    .form-group
-      button.btn.btn-primary(type='submit') Update Password
+  img(src="/images/signin-bg.jpg")
+  .wrapper-signin
+    form.signin(method='POST' action='./reset')
+      h2 Reset Password
+      .password
+        input(type='password' name='password' required autofocus)
+        label New Password
+      #reset.password
+        input(type='password' name='confirm' required)
+        label Confirm Password
+      input(type='submit' value="Update Password")

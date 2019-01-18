@@ -1,11 +1,11 @@
-extend layout
+extend signin-layout
 
 block content
-  form(method='post' action="./lostpw")
-    legend Forgot Password
-    .form-group
-      if signError
-        .error-message= '에러입니다'
-      label(for='email') Email
-      input.form-control(type='email', name='e_mail', autofocus)
-    button.btn.btn-primary(type='submit') Reset Password
+  img(src="/images/signin-bg.jpg")
+  .wrapper-signin
+    form.signin(method='post' action="./lostpw")
+      h2 Forgot Password
+      .email
+        input.form-control(type='email' name='e_mail' required autofocus)
+        label Email
+      input(type='submit' value= "Reset Password")

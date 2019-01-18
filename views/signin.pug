@@ -7,7 +7,7 @@ block content
     form#signin.signin(method="post" action="/auth/signin")
       h2.signin-logo Steam
       .userid
-        input(type="text" name="client_id" required)
+        input(type="text" name="client_id" required autofocus)
         label Username
       .password
         input(type="password" name="client_pw" required)

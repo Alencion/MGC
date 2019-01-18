@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
         created_date: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull: true,
-            defaultValue: sequelize.literal('now()'),
+            // defaultValue: sequelize.literal('now()'),
         },
         userId:{
             type : DataTypes.INTEGER,

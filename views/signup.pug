@@ -5,7 +5,7 @@ block content
         form#signup.signup(method="post" action="/auth/signup")
             h2 Sign Up
             label Username
-            input#username(type="text" placeholder="Username" name="client_id" required)
+            input#username(type="text" placeholder="Username" name="client_id" required autofocus)
             if signError
                 .error-message= signError
             label Password
