@@ -1,13 +1,109 @@
-extends layout
+extends board-layout
 
 block content
-    ul
-        li
-            a(href="./article/#") article 1
-        li
-            a(href="./article/#") article 2
-        li
-            a(href="./article/#") article 3
-        li
-            a(href="./article/#") article 4
+    .container-menu
+        .wrapper-menu
+            ul.menu
+                li
+                    a#commnunity(href="./university") 대학게시판
+                li
+                    a#board(href="./") Board
+                li
+                    a#potal(href="http://portal.cnu.ac.kr/") Portal
+                li
+                    a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
+    .board
+        h2= title
+        table(cellspacing="0")
+            thead
+                tr.table_head
+                    th.id Index
+                    th.title 제목
+                    th.writer 글쓴이
+                    th.view 조회수
+                    th.date 날짜
+            tbody
+                tr.table_body
+                    td.id 10
+                    td.title
+                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    td.writer alencion
+                    td.view 0
+                    td.date 2019-01-08
+                tr.table_body
+                    td.id 9
+                    td.title
+                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    td.writer alencion
+                    td.view 0
+                    td.date 2019-01-08
+                tr.table_body
+                    td.id 8
+                    td.title
+                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    td.writer alencion
+                    td.view 0
+                    td.date 2019-01-08
+                tr.table_body
+                    td.id 7
+                    td.title
+                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    td.writer alencion
+                    td.view 0
+                    td.date 2019-01-08
+                tr.table_body
+                    td.id 6
+                    td.title
+                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    td.writer alencion
+                    td.view 0
+                    td.date 2019-01-08
+                tr.table_body
+                    td.id 5
+                    td.title
+                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    td.writer alencion
+                    td.view 0
+                    td.date 2019-01-08
+                tr.table_body
+                    td.id 4
+                    td.title
+                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    td.writer alencion
+                    td.view 0
+                    td.date 2019-01-08
+                tr.table_body
+                    td.id 3
+                    td.title
+                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    td.writer alencion
+                    td.view 0
+                    td.date 2019-01-08
+                tr.table_body
+                    td.id 2
+                    td.title
+                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    td.writer alencion
+                    td.view 0
+                    td.date 2019-01-08
+                tr.table_body
+                    td.id 1
+                    td.title
+                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    td.writer alencion
+                    td.view 0
+                    td.date 2019-01-08
 
+        .wrapper-pagination
+            ul.pagination
+                li
+                    a(href="#") 1
+                li
+                    a(href="#") 2
+                li
+                    a(href="#") 3
+                li
+                    a(href="#") 4
+                li
+                    a(href="#") 5
+            input#write-btn(type="button" value="글쓰기" onclick="btn()")

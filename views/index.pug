@@ -1,10 +1,92 @@
-extends layout
+extends index-layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  a(href="./auth/signin") Sign In
-  a(href="./auth/signup") Sign Up
-  a(href="./mypage") mypage
-  a(href="./board") board
-  input(type="button" value="logout")
+  .index-logo
+    img(src="/images/index-logo.png")
+    h1.title= title
+    p 충남대 커뮤니티
+
+  .wrapper-menu
+    ul.menu
+      li
+        a#commnunity(href="./board/university") 대학게시판
+      li
+        a#board(href="./board/") Board
+      li
+        a#potal(href="http://portal.cnu.ac.kr/") Portal
+      li
+        a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
+    .hamburger
+
+  div.content
+    .section-list.recommend
+      h2.list-title.recommend 인기 글
+      #{list_recommend}
+      ul
+        li
+          a(href = "./article/#")
+            .item
+              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              span.item-date 2019-01-08
+              span.item-writer alencion
+        li
+          a(href = "./article/#")
+            .item
+              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              span.item-date 2019-01-08
+              span.item-writer alencion
+        li
+          a(href = "./article/#")
+            .item
+              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              span.item-date 2019-01-08
+              span.item-writer alencion
+        li
+          a(href = "./article/#")
+            .item
+              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              span.item-date 2019-01-08
+              span.item-writer alencion
+        li
+          a(href = "./article/#")
+            .item
+              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              span.item-date 2019-01-08
+              span.item-writer alencion
+      a.read-more(href = "./board/") Read More
+
+    .section-list.recent
+      h2.list-title.recent-title 최신 글
+      #{list_recent}
+      ul
+        li
+          a(href = "./article/#")
+            .item
+              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              span.item-date 2019-01-08
+              span.item-writer alencion
+        li
+          a(href = "./article/#")
+            .item
+              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              span.item-date 2019-01-08
+              span.item-writer alencion
+        li
+          a(href = "./article/#")
+            .item
+              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              span.item-date 2019-01-08
+              span.item-writer alencion
+        li
+          a(href = "./article/#")
+            .item
+              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              span.item-date 2019-01-08
+              span.item-writer alencion
+        li
+          a(href = "./article/#")
+            .item
+              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              span.item-date 2019-01-08
+              span.item-writer alencion
+      a.read-more(href = "./board/") Read More

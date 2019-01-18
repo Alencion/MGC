@@ -1,0 +1,15 @@
+.wrapper-footer{
+    height: 100px;
+    background-color: #44606F;
+    color: #fff;
+    border-top: 1.5px solid rgba(28,56,71,0.9);
+}
+.footer{
+    text-align: center;
+    border-top: 1px solid rgba(48,76,91,0.9);
+}
+.footer label{
+
+    display: inline-block;
+    line-height: 100px;
+}

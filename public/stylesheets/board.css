@@ -1,0 +1,115 @@
+@import "style.css";
+/* Menu */
+.container-menu{
+    background-color: #2F5597;
+    text-align: center;
+    height: 80px;
+}
+.wrapper-menu{
+    margin: 0 auto;
+    width: 1000px;
+    display: inline-block;
+}
+.menu{
+    float: right;
+    list-style: none;
+    display: inline-block;
+    /*height: 80px;*/
+}
+.menu li{
+    float: left;
+    height: 80px;
+    overflow: hidden;
+}
+.menu li a{
+    margin: 27px 0;
+    display: inline-block;
+    text-decoration: none;
+    width: 135px;
+    height: 26px;
+    border-right : 2px solid #fff;
+    line-height: 26px;
+    color: #fff;
+    font-size: 1rem;
+    transition: .3s;
+}
+.menu li:last-child a{
+    border-right: none;
+}
+.menu li a:hover{
+    font-size: 1.1rem;
+}
+.menu li a:before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 87px;
+    height: 10px;
+    margin: 0 auto;
+    transform: translate(25px, 47px) scaleX(0);
+    background-color: #fff;
+    transition: ease .3s;
+}
+.menu li a:hover:before{
+    transform: translate(25px, 47px) scaleX(1);
+}
+
+/* Board */
+.board{
+    margin: 0 auto;
+    display: block;
+    width: 1000px;
+    background-color: #fff;
+    border-spacing: 0px;
+    box-shadow: 0 0 11px 2px rgba(80,80,80,.2);
+
+}
+.board h2{
+    margin: 20px;
+    padding-left: 20px;
+    border-left: 5px solid black;
+    display: inline-block;
+    font-size: 1.7rem;
+}
+.board table{
+    margin: 20px auto;
+}
+.board thead{
+    background-color: #f4f3f3;
+}
+.board th{
+    padding : 5px 10px;
+}
+table .id, table .writer, table .view{
+    width: 50px;
+    text-align: center;
+}
+.table_body{
+    height: 35px;
+}
+.table_body .title{
+    width: 500px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+/* Pagination */
+.wrapper-pagination{
+    display: block;
+    text-align: center;
+}
+.pagination{
+    list-style: none;
+    display: inline-block;
+}
+.pagination li{
+    float: left;
+    margin: 20px;
+}
+#write-btn{
+    display: inline;
+    position: relative;
+    top: -40px;
+    left: 220px;
+}
