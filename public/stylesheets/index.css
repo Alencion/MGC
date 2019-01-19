@@ -166,7 +166,8 @@
     background-color: #2F5597;
 }
 
-@media(max-width: 1000px){
+@media (max-width: 1000px) and (min-width: 640px) {
+    /* Index logo */
     .index-logo{
         text-align: left;
         height: 0;
@@ -191,8 +192,70 @@
     .wrapper-menu{
         height: 80px;
     }
+    /* Menu */
     .menu{
         margin: 20px 0 ;
         display: none;
+    }
+    /* Content */
+    .content{
+        width: 100%;
+    }
+    .content .section-list{
+        width: 640px;
+    }
+    /* Content > Item */
+    .item span{
+        display: none;
+    }
+    .item .item-title{
+        display: inline-block;
+    }
+}
+@media (max-width: 640px){
+    /* Index logo */
+    .index-logo{
+        text-align: left;
+        height: 0;
+    }
+    .index-logo img{
+        width: 4rem;
+        margin: 0;
+        top: 41px;
+        left: 90px;
+    }
+    .index-logo .title{
+        text-align: left;
+        font-size: 2.5rem;
+        top: 31px;
+        left: 190px;
+    }
+    .index-logo p{
+        font-size: 1rem;
+        top: 58px;
+        left: 190px;
+    }
+    .wrapper-menu{
+        height: 80px;
+    }
+    /* Menu */
+    .menu{
+        margin: 20px 0 ;
+        display: none;
+    }
+    /* Content */
+    .content{
+        width: 100%;
+    }
+    .content .section-list{
+        width: 100%;
+    }
+    /* Content > Item */
+    .item span{
+        display: none;
+    }
+    .item .item-title{
+        width: 90%;
+        display: inline-block;
     }
 }
