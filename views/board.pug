@@ -3,11 +3,15 @@ extends board-layout
 block content
     .container-menu
         .wrapper-menu
+            .index-logo
+                img(src="/images/index-logo.png")
+                h1.title Steam
+                p 충남대 커뮤니티
             ul.menu
                 li
-                    a#commnunity(href="./university") 대학게시판
+                    a#commnunity(href="http://localhost:3000/board/university/page=1") 대학게시판
                 li
-                    a#board(href="./") Board
+                    a#board(href="http://localhost:3000/board/page=1") Board
                 li
                     a#potal(href="http://portal.cnu.ac.kr/") Portal
                 li
@@ -23,87 +27,36 @@ block content
                     th.view 조회수
                     th.date 날짜
             tbody
-                tr.table_body
-                    td.id 10
-                    td.title
-                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    td.writer alencion
-                    td.view 0
-                    td.date 2019-01-08
-                tr.table_body
-                    td.id 9
-                    td.title
-                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    td.writer alencion
-                    td.view 0
-                    td.date 2019-01-08
-                tr.table_body
-                    td.id 8
-                    td.title
-                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    td.writer alencion
-                    td.view 0
-                    td.date 2019-01-08
-                tr.table_body
-                    td.id 7
-                    td.title
-                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    td.writer alencion
-                    td.view 0
-                    td.date 2019-01-08
-                tr.table_body
-                    td.id 6
-                    td.title
-                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    td.writer alencion
-                    td.view 0
-                    td.date 2019-01-08
-                tr.table_body
-                    td.id 5
-                    td.title
-                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    td.writer alencion
-                    td.view 0
-                    td.date 2019-01-08
-                tr.table_body
-                    td.id 4
-                    td.title
-                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    td.writer alencion
-                    td.view 0
-                    td.date 2019-01-08
-                tr.table_body
-                    td.id 3
-                    td.title
-                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    td.writer alencion
-                    td.view 0
-                    td.date 2019-01-08
-                tr.table_body
-                    td.id 2
-                    td.title
-                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    td.writer alencion
-                    td.view 0
-                    td.date 2019-01-08
-                tr.table_body
-                    td.id 1
-                    td.title
-                        a(href="../article/id=1") Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    td.writer alencion
-                    td.view 0
-                    td.date 2019-01-08
+                for article in articles
+                    tr.table_body
+                        td.id= article.id
+                        td.title
+                            a(href="../article/id="+article.id)= article.title
+                        td.writer= article.user.name
+                        td.view= article.view
+                        td.date= article.created_date
 
         .wrapper-pagination
             ul.pagination
-                li
-                    a(href="#") 1
-                li
-                    a(href="#") 2
-                li
-                    a(href="#") 3
-                li
-                    a(href="#") 4
-                li
-                    a(href="#") 5
+                -var x = input;
+                -var page = ppage;
+                    - if(page < 10)
+                        - for (var i = 1; i <= page; i++)
+                            li
+                                a(href="/board/page="+i )= i
+                    - else if(x < 10)
+                        - for (var i = 1; i <= 10; i++)
+                            li
+                                a(href="/board/page=" + i )= i
+                    - else if(x+10 > page)
+                        - for (var i = page - 9; i <= page; i++)
+                            li
+                                a(href="/board/page=" + i )= i
+                    - else
+                        - for (var i = (x - (x%10) + 1); i <= (x - (x%10)); i++)
+                            li
+                                a(href="/board/page=" + i )= i
+
+
+
             input#write-btn(type="button" value="글쓰기" onclick="btn()")

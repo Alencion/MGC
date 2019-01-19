@@ -13,7 +13,7 @@ router.get('/id=:id' , async(req, res, next) => {
         var id = req.params.id;
         var article = await Article.find({where: { id }, include: [model.User]});
         // update view + 1
-        Article.update({view: article.view+1 }, {where: {id}});
+        Article.update({view: article.view+1 }, {where: { id }});
     }
     catch (error) {
         console.error(error);

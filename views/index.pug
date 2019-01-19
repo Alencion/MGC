@@ -9,9 +9,9 @@ block content
   .wrapper-menu
     ul.menu
       li
-        a#commnunity(href="./board/university") 대학게시판
+        a#commnunity(href="./board/university/page=1") 대학게시판
       li
-        a#board(href="./board/") Board
+        a#board(href="./board/page=1") Board
       li
         a#potal(href="http://portal.cnu.ac.kr/") Portal
       li
@@ -20,7 +20,7 @@ block content
 
   div.content
     .section-list.recommend
-      h2.list-title.recommend 인기 글
+      h2.list-title.recommend 대학게시판
       #{list_recommend}
       ul
         li
@@ -29,34 +29,11 @@ block content
               span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
               span.item-date 2019-01-08
               span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-      a.read-more(href = "./board/") Read More
+
+      a.read-more(href = "./board/university/page=1") Read More
 
     .section-list.recent
-      h2.list-title.recent-title 최신 글
+      h2.list-title.recent-title 자유게시판
       #{list_recent}
       ul
         li
@@ -65,28 +42,5 @@ block content
               span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
               span.item-date 2019-01-08
               span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-      a.read-more(href = "./board/") Read More
+
+      a.read-more(href = "./board/page=1") Read More
