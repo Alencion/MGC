@@ -3,9 +3,9 @@ var router = express.Router();
 var {User, Article} = require('../models');
 /* GET board page. */
 router.get('/page=:page', async (req, res, next) =>{
-    var pageNumber = await Article.findAndCountAll({});
+    var Count = await Article.findAndCountAll({});
     Article.findAll({
-        offset: (req.params.page)*10,
+        offset: (req.params.page -1)*10,
         limit: 10,
         include: {
             model: User,
@@ -14,9 +14,8 @@ router.get('/page=:page', async (req, res, next) =>{
         order:[['id', 'DESC']],
     })
         .then((Article) => {
-            pageNumber = parseInt((pageNumber.count+9)/10);
-            var currentPageNumber = req.params.page;
-            console.log(pageNumber);
+            Count = parseInt((Count.count+9)/10);
+            var index = req.params.page;
             if(req.isAuthenticated()) {
                 User = req.user;
             }
@@ -26,16 +25,16 @@ router.get('/page=:page', async (req, res, next) =>{
                 isNotSignedIn: !req.isAuthenticated(),
                 username : User.name,
                 articles : Article,
-                input : currentPageNumber,
-                ppage : pageNumber,
+                index : index,
+                count : Count,
             })
         });
 });
 /* GET university board page. */
 router.get('/university/page=:page', async (req, res, next)=>{
-    var pageNumber = await Article.findAndCountAll({});
+    var Count = await Article.findAndCountAll({});
     Article.findAll({
-        offset: (req.params.page)*10,
+        offset: (req.params.page - 1)*10,
         limit: 10,
         include: {
             model: User,
@@ -44,9 +43,9 @@ router.get('/university/page=:page', async (req, res, next)=>{
         order:[['id', 'DESC']],
     })
         .then((Article) => {
-            pageNumber = parseInt((pageNumber.count+9)/10);
-            var currentPageNumber = req.params.page;
-            console.log(pageNumber);
+            Count = parseInt((Count.count+9)/10);
+            var index = req.params.page;
+            console.log(Count);
             if(req.isAuthenticated()) {
                 User = req.user;
             }
@@ -56,8 +55,8 @@ router.get('/university/page=:page', async (req, res, next)=>{
                 isNotSignedIn: !req.isAuthenticated(),
                 username : User.name,
                 articles : Article,
-                input : currentPageNumber,
-                ppage : pageNumber,
+                index : index,
+                count : Count,
             })
         });
 });

@@ -38,25 +38,19 @@ block content
 
         .wrapper-pagination
             ul.pagination
-                -var x = input;
-                -var page = ppage;
-                    - if(page < 10)
-                        - for (var i = 1; i <= page; i++)
-                            li
-                                a(href="/board/page="+i )= i
-                    - else if(x < 10)
-                        - for (var i = 1; i <= 10; i++)
-                            li
-                                a(href="/board/page=" + i )= i
-                    - else if(x+10 > page)
-                        - for (var i = page - 9; i <= page; i++)
-                            li
-                                a(href="/board/page=" + i )= i
-                    - else
-                        - for (var i = (x - (x%10) + 1); i <= (x - (x%10)); i++)
-                            li
-                                a(href="/board/page=" + i )= i
-
+                -var pageindex = index;
+                -var pageCount = count;
+                -var i = 1;
+                -var c = 1;
+                -if(index > 5)
+                    - i = pageindex - 4;
+                - while( i <= pageCount)
+                    li
+                        a(href="./page="+i) #{i}
+                    -if( c == 9 )
+                        -break
+                    - i = i+1
+                    - c = c+1
 
 
             input#write-btn(type="button" value="글쓰기" onclick="btn()")
