@@ -44,6 +44,8 @@ block content
                 -var c = 1;
                 -if(index > 5)
                     - i = pageindex - 4;
+                li
+                    a(href="./page=1") <<
                 - while( i <= pageCount)
                     li
                         a(href="./page="+i) #{i}
@@ -51,6 +53,7 @@ block content
                         -break
                     - i = i+1
                     - c = c+1
-
+                li
+                    a(href="./page="+pageCount) >>
 
             input#write-btn(type="button" value="글쓰기" onclick="btn()")
