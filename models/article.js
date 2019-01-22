@@ -20,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
             type : DataTypes.INTEGER,
             allowNull:false,
         },
+        boardname:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+        },
     },{
         timestmamps:false,
     });

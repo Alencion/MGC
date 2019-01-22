@@ -38,15 +38,13 @@ block content
 
         .wrapper-pagination
             ul.pagination
-                -var pageindex = index;
-                -var pageCount = count;
                 -var i = 1;
                 -var c = 1;
                 -if(index > 5)
-                    - i = pageindex - 4;
+                    - i = index - 4;
                 li
                     a(href="./page=1") <<
-                - while( i <= pageCount)
+                - while( i <=count)
                     li
                         a(href="./page="+i) #{i}
                     -if( c == 9 )
@@ -54,6 +52,6 @@ block content
                     - i = i+1
                     - c = c+1
                 li
-                    a(href="./page="+pageCount) >>
+                    a(href="./page="+count) >>
 
             input#write-btn(type="button" value="글쓰기" onclick="btn()")
