@@ -1,9 +1,53 @@
-extends layout
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/mypage.css')
+        link(rel='stylesheet', href='/stylesheets/header.css')
+        link(rel='stylesheet', href='/stylesheets/footer.css')
+        link(href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet")
+    body
+        block header
+            .wrapper-header
+                .header
+                    a.home(href="/") Home
+                    a.about(href="#") About
+                    .auth#loggedin
+                        label #{username}님 환영합니다.
+                        a(href="http://computer.cnu.ac.kr/" target="_blank") 과홈페이지
+                        a(href="/auth/signout") signout
 
-block content
-    p user name
-    p user password
-    p confirm password
-    p email
-    p article count
-
+        block content
+            .container-menu
+                .wrapper-menu
+                    .index-logo
+                        img(src="/images/index-logo.png")
+                        h1.title Steam
+                        p 충남대 커뮤니티
+                    ul.menu
+                        li
+                            a#commnunity(href="http://localhost:3000/board/university/page=1") 대학게시판
+                        li
+                            a#board(href="http://localhost:3000/board/page=1") Board
+                        li
+                            a#potal(href="http://portal.cnu.ac.kr/") Portal
+                        li
+                            a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
+            .mypage
+                h2 mypage
+                .username
+                    label User name :
+                    p admin#{username}
+                .useremail
+                    label Email :
+                    p admin@MGC.com#{email}
+                .articlecount
+                    label Article count
+                    p 대학 게시판 : 3#{universityCount}
+                    p 자유 게시판 : 2#{boardCount}
+                input(type="button" value="글 목록 보기")
+                input(type="button" value="정보 수정")
+        block footer
+            .wrapper-footer
+                .footer
+                    label Copyright(C)2019 Steam All Rights Reserved.
