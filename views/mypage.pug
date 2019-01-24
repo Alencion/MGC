@@ -37,16 +37,17 @@ html
                 h2 mypage
                 .username
                     label User name :
-                    p admin#{username}
+                    p #{username}
                 .useremail
                     label Email :
-                    p admin@MGC.com#{email}
+                    p #{email}
                 .articlecount
                     label Article count
-                    p 대학 게시판 : 3#{universityCount}
-                    p 자유 게시판 : 2#{boardCount}
-                input(type="button" value="글 목록 보기")
-                input(type="button" value="정보 수정")
+                    p 대학 게시판 : #{universityCount}
+                    p 자유 게시판 : #{boardCount}
+                .btn
+                    input(type="button" value="글 목록 보기")
+                    input(type="button" value="정보 수정")
         block footer
             .wrapper-footer
                 .footer
