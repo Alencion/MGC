@@ -21,8 +21,8 @@ db.Category = require('./category')(sequelize, Sequelize);
 db.User.hasMany(db.Article, {foreignKey : 'userId',sourceKey:'id'});
 db.Article.belongsTo(db.User, {foreignKey : 'userId', targetKey:'id'});
 
-db.Category.hasMany(db.Article, {foreignKey : 'boardname',sourceKey:'categoryid'});
-db.Article.belongsTo(db.Category, {foreignKey : 'boardname', targetKey:'categoryid'});
+db.Category.hasMany(db.Article, {foreignKey : 'boardname',sourceKey:'id'});
+db.Article.belongsTo(db.Category, {foreignKey : 'boardname', targetKey:'id'});
 
 //
 // 포린키에 언더바 _ 가 있을경우 오류가난다.

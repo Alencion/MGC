@@ -5,10 +5,6 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             unique: true,
         },
-        categoryid: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
     },{
         timestamps:false,
     });

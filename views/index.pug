@@ -27,7 +27,7 @@ block content
             a(href = "./article/id="+item_university.id)
               .item
                 span.item-title= item_university.title
-                span.item-date= item_university.date
+                span.item-date= item_university.created_date
                 span.item-writer= item_university.user.name
 
       a.read-more(href = "./board/university/page=1") Read More
@@ -40,7 +40,7 @@ block content
             a(href = "./article/id="+item_board.id)
               .item
                 span.item-title= item_board.title
-                span.item-date= item_board.date
+                span.item-date= item_board.created_date
                 span.item-writer= item_board.user.name
 
       a.read-more(href = "./board/page=1") Read More

@@ -55,8 +55,9 @@ router.post('/write', isLoggedIn, upload.none(), async(req, res, next)=>{
             view: 0,
             userId : req.user.id,
             created_date : model.Sequelize.literal('now()'),
+            boardname : req.body.category
         });
-        res.redirect('/board');
+        res.redirect('http://localhost:3000/board/page=1');
     }catch(error){
         console.error(error);
         next(error);
