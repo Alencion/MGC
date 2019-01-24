@@ -53,6 +53,7 @@ router.post('/signin', isNotLoggedIn, (req, res, next)=>{
         });
     })(req, res, next);
 });
+
 router.post('/signup',isNotLoggedIn, async(req, res, next)=>{
     var {client_id, client_pw, name, e_mail} = req.body;
     try {

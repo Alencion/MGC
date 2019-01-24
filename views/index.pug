@@ -9,9 +9,9 @@ block content
   .wrapper-menu
     ul.menu
       li
-        a#commnunity(href="./board/university") 대학게시판
+        a#commnunity(href="./board/university/page=1") 대학게시판
       li
-        a#board(href="./board/") Board
+        a#board(href="./board/page=1") Board
       li
         a#potal(href="http://portal.cnu.ac.kr/") Portal
       li
@@ -19,74 +19,28 @@ block content
     .hamburger
 
   div.content
-    .section-list.recommend
-      h2.list-title.recommend 인기 글
-      #{list_recommend}
+    .section-list.university
+      h2.list-title.university 대학게시판
       ul
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-      a.read-more(href = "./board/") Read More
+        each item_university in university
+          li
+            a(href = "./article/id="+item_university.id)
+              .item
+                span.item-title= item_university.title
+                span.item-date= item_university.created_date
+                span.item-writer= item_university.user.name
 
-    .section-list.recent
-      h2.list-title.recent-title 최신 글
-      #{list_recent}
+      a.read-more(href = "./board/university/page=1") Read More
+
+    .section-list.board
+      h2.list-title.board-title 자유게시판
       ul
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-        li
-          a(href = "./article/#")
-            .item
-              span.item-title Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              span.item-date 2019-01-08
-              span.item-writer alencion
-      a.read-more(href = "./board/") Read More
+        each item_board in board
+          li
+            a(href = "./article/id="+item_board.id)
+              .item
+                span.item-title= item_board.title
+                span.item-date= item_board.created_date
+                span.item-writer= item_board.user.name
+
+      a.read-more(href = "./board/page=1") Read More

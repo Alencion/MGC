@@ -2,10 +2,12 @@
     background-color: #fff;
     width: 100%;
     height: 40px;
+    transition: .5s;
 }
 .header{
     margin: 0 auto;
     width: 1000px;
+    transition: .5s;
 }
 .header a{
     line-height: 40px;
@@ -24,4 +26,17 @@
     display: inline-block;
     position: relative;
     transform: translateX(-20px);
+}
+@media (max-width: 1000px) and (min-width: 640px) {
+    .header{
+        width: 640px;
+    }
+}
+@media (max-width: 640px){
+    .wrapper-header{
+        height: 0;
+    }
+    .header{
+        transform: translateY(-40px);
+    }
 }

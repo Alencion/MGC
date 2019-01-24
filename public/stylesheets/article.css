@@ -5,6 +5,32 @@
     text-align: center;
     height: 80px;
 }
+    /* logo */
+    .index-logo{
+        color: #fff;
+        text-align: left;
+        display: inline-block;
+    }
+    .index-logo img{
+        margin: 0;
+        width: 4rem;
+        position: relative;
+        top: 10px;
+        left: -111px;
+    }
+    .index-logo .title{
+        font-size: 2.5rem;
+        transition: .5s;
+        position: relative;
+        top: -55px;
+        left: -37px;
+    }
+    .index-logo p{
+        font-size: 1rem;
+        position: relative;
+        top: -62px;
+        left: -29.5px;
+    }
 .wrapper-menu{
     margin: 0 auto;
     width: 1000px;
@@ -58,6 +84,7 @@
 .wrapper-article{
 
 }
+
 .article{
     margin: 0 auto;
     display: block;

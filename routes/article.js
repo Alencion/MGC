@@ -13,7 +13,7 @@ router.get('/id=:id' , async(req, res, next) => {
         var id = req.params.id;
         var article = await Article.find({where: { id }, include: [model.User]});
         // update view + 1
-        Article.update({view: article.view+1 }, {where: {id}});
+        Article.update({view: article.view+1 }, {where: { id }});
     }
     catch (error) {
         console.error(error);
@@ -55,8 +55,9 @@ router.post('/write', isLoggedIn, upload.none(), async(req, res, next)=>{
             view: 0,
             userId : req.user.id,
             created_date : model.Sequelize.literal('now()'),
+            boardname : req.body.category
         });
-        res.redirect('/board');
+        res.redirect('http://localhost:3000/board/page=1');
     }catch(error){
         console.error(error);
         next(error);
