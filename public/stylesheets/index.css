@@ -111,7 +111,7 @@
     top: -5%;
     left: 5%;
 }
-.content .recent{
+.content .board{
     margin-bottom: 40px;
 }
 .content ul{
@@ -143,7 +143,7 @@
     white-space:nowrap;
     color: #2c2727;
 }
-.item >  .item-date, .item-writer {
+.item > .item-date, .item-writer {
     margin-left: 10px;
     transform: translateY(-30%);
 }

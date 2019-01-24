@@ -127,14 +127,29 @@ table .id, table .writer, table .view{
 .pagination{
     list-style: none;
     display: inline-block;
+    margin-bottom: 20px;
 }
 .pagination li{
     float: left;
-    margin: 20px;
+    margin: 5px;
 }
+.pagination li a{
+    display: inline-block;
+    min-width: 15.8px;
+    padding: 5px;
+    text-decoration: none;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+}
+.pagination li .active{
+    background-color: #3777b5;
+    color: #fff;
+    border: 1px solid #3777b5;
+}
+
 #write-btn{
-    display: inline;
+    display: block;
     position: relative;
-    top: -40px;
-    left: 220px;
+    right: 10%;
+    float: right;
 }
