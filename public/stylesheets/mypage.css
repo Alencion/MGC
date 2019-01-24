@@ -5,7 +5,7 @@
     text-align: center;
     height: 80px;
 }
-    /* logo */
+/* logo */
     .index-logo{
         color: #fff;
         text-align: left;
@@ -80,12 +80,8 @@
     transform: translate(25px, 47px) scaleX(1);
 }
 
-/* Article */
-.wrapper-article{
-
-}
-
-.article{
+/* mypage */
+.mypage{
     margin: 0 auto;
     display: block;
     width: 1000px;
@@ -94,7 +90,7 @@
     border-spacing: 0px;
     box-shadow: 0 0 11px 2px rgba(80,80,80,.2);
 }
-.article .title{
+.mypage h2{
     margin: 20px;
     padding-left: 20px;
     border-left: 5px solid black;
@@ -102,18 +98,32 @@
     font-size: 1.7rem;
     width: 935px;
 }
-.article .info{
-    padding-right: 20px;
-    float: right;
-}
-.article .info p{
+.mypage div{
+    width: 90%;
     display: inline-block;
-    padding: 10px;
+    margin : 20px;
 }
-.article .descript{
-    margin: 0 20px ;
-    padding: 35px 15px;
-    font-size: 1.15rem;
-    border-top: 1px dashed darkgray;
-    line-height: 2rem;
+.mypage label{
+    margin-right: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: inline-block;
+}
+.mypage p{
+    display: inline-block;
+}
+.mypage .btn{
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+}
+.mypage .btn input{
+    margin-right: 30px;
+}
+.mypage .articlecount label{
+    margin-bottom: 10px;
+}
+.mypage .articlecount p{
+    display: block;
+    margin: 10px;
 }
