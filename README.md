@@ -2,9 +2,9 @@
 
 #### Welcome!
 
-...
+```
 Steam Community is CSE GameMania Community!
-...
+```
 
 #### If you want join
 
