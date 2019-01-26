@@ -1,21 +1,18 @@
-### Nodejs Document ###
+### CNU CSE Steam Commnunity! ###
 
-#### main ####
+#### Welcome!
 
-- app.js
+...
+Steam Community is CSE GameMania Community!
+...
 
-#### 기능 ####
+#### If you want join
 
-- index.js (index.pug)
-- authorization.js (signin, signup, signout)
-- userview.js (mypage)
-- article.js (article, wirte)
-- board.js (board)
+steam-rhqnrdl625742461.codeanyapp.com/
 
-#### view ####
+enter the site and signup for us!
+you can sign in this page and enjoy the community
 
-- index – Index.js
-- authorization – signin, (post_signin), signup, (post_signup) 
-- userview – mypage
-- article – article, write, (post_write)
-- board - board
+#### made by
+
+15_CSE Alencion, Rinha7
