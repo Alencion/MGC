@@ -117,3 +117,9 @@
     border-top: 1px dashed darkgray;
     line-height: 2rem;
 }
+/* disqus */
+#disqus_thread{
+    max-width: 1000px !important;
+    display: block;
+    margin: 0 auto;
+}

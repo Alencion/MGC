@@ -1,46 +1,57 @@
-extends index-layout
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/index.css')
+    link(rel='stylesheet', href='/stylesheets/header.css')
+    link(rel='stylesheet', href='/stylesheets/footer.css')
+    link(href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet")
+  body
+    block header
+      include header.pug
+    block content
+      .index-logo
+        img(src="/images/index-logo.png")
+        h1.title= title
+        p 충남대 커뮤니티
 
-block content
-  .index-logo
-    img(src="/images/index-logo.png")
-    h1.title= title
-    p 충남대 커뮤니티
-
-  .wrapper-menu
-    ul.menu
-      li
-        a#commnunity(href="./board/university/page=1") 대학게시판
-      li
-        a#board(href="./board/page=1") Board
-      li
-        a#potal(href="http://portal.cnu.ac.kr/") Portal
-      li
-        a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
-    .hamburger
-
-  div.content
-    .section-list.university
-      h2.list-title.university 대학게시판
-      ul
-        each item_university in university
+      .wrapper-menu
+        ul.menu
           li
-            a(href = "./article/id="+item_university.id)
-              .item
-                span.item-title= item_university.title
-                span.item-date= item_university.created_date
-                span.item-writer= item_university.user.name
-
-      a.read-more(href = "./board/university/page=1") Read More
-
-    .section-list.board
-      h2.list-title.board-title 자유게시판
-      ul
-        each item_board in board
+            a#commnunity(href="./board/university/page=1") 대학게시판
           li
-            a(href = "./article/id="+item_board.id)
-              .item
-                span.item-title= item_board.title
-                span.item-date= item_board.created_date
-                span.item-writer= item_board.user.name
+            a#board(href="./board/page=1") Board
+          li
+            a#potal(href="http://portal.cnu.ac.kr/") Portal
+          li
+            a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
+        .hamburger
 
-      a.read-more(href = "./board/page=1") Read More
+      div.content
+        .section-list.university
+          h2.list-title.university 대학게시판
+          ul
+            each item_university in university
+              li
+                a(href = "./article/id=" + item_university.id)
+                  .item
+                    span.item-title= item_university.title
+                    span.item-date= item_university.created_date
+                    span.item-writer= item_university.user.name
+
+          a.read-more(href = "./board/university/page=1") Read More
+
+        .section-list.board
+          h2.list-title.board-title 자유게시판
+          ul
+            each item_board in board
+              li
+                a(href = "./article/id=" + item_board.id)
+                  .item
+                    span.item-title= item_board.title
+                    span.item-date= item_board.created_date
+                    span.item-writer= item_board.user.name
+
+          a.read-more(href = "./board/page=1") Read More
+    block footer
+      include footer.pug

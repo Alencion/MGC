@@ -1,11 +1,16 @@
-extend signin-layout
-
-block content
-  img(src="/images/signin-bg.jpg")
-  .wrapper-signin
-    form.signin(method='post' action="./lostpw")
-      h2 Forgot Password
-      .email
-        input.form-control(type='email' name='e_mail' required autofocus)
-        label Email
-      input(type='submit' value= "Reset Password")
+doctype html
+html
+  head
+    title Steam
+    link(rel='stylesheet', href='/stylesheets/signin.css')
+    link(href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet")
+  body
+    block content
+      img(src="/images/signin-bg.jpg")
+      .wrapper-signin
+        form.signin(method='post' action="./lostpw")
+          h2 Forgot Password
+          .email
+            input.form-control(type='email' name='e_mail' required autofocus)
+            label Email
+          input(type='submit' value= "Reset Password")
