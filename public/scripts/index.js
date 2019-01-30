@@ -1,0 +1,10 @@
+$(document).ready(function(){
+    $(".btn-hamburger").click(function(){
+        $(".wrapper-hamburger").addClass("toggle-active");
+    })
+})
+$(document).ready(function(){
+    $(".wrapper-hamburger").click(function(){
+        $(".wrapper-hamburger").removeClass("toggle-active");
+    })
+})
