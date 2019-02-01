@@ -6,10 +6,11 @@ html
         link(rel='stylesheet', href='/stylesheets/header.css')
         link(rel='stylesheet', href='/stylesheets/footer.css')
         link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css")
-        link(href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet")
-        script(type="text/javascript" src="../../scripts/isLoggedIn.js")
+        link(href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu|Nanum+Gothic" rel="stylesheet")
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+        script(type="text/javascript" src="../../scripts/isLoggedIn.js")
         script(type="text/javascript" src="../../scripts/pagination.js")
+        script(type="text/javascript" src="../../scripts/hamburger.js")
     body
         block header
             include header.pug
@@ -30,6 +31,7 @@ html
                             a#potal(href="http://portal.cnu.ac.kr/") Portal
                         li
                             a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
+            include hamburger.pug
             .board
                 h2= title
                 table(cellspacing="0")

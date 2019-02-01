@@ -1,4 +1,5 @@
 @import "style.css";
+@import "hamburger.css";
 /* Menu */
 .container-menu{
     background-color: #2F5597;
@@ -17,19 +18,24 @@
         position: relative;
         top: 10px;
         left: -111px;
+        transition-property: top;
+        transition-duration: .5s;
     }
     .index-logo .title{
         font-size: 2.5rem;
-        transition: .5s;
         position: relative;
         top: -55px;
         left: -37px;
+        transition-property: top;
+        transition-duration: .5s;
     }
     .index-logo p{
         font-size: 1rem;
         position: relative;
         top: -62px;
         left: -29.5px;
+        transition-property: top;
+        transition-duration: .5s;
     }
 .wrapper-menu{
     margin: 0 auto;
@@ -122,4 +128,85 @@
     max-width: 1000px !important;
     display: block;
     margin: 0 auto;
+}
+@media (max-width: 1000px){
+    .wrapper-menu .menu{
+        display: none;
+    }
+    .board{
+        width: 100%;
+    }
+}
+@media (max-width: 1000px) and (min-width: 640px) {
+    /* Index logo */
+    .index-logo img{
+        top: 10px;
+        left: -411px;
+    }
+    .index-logo .title{
+        top: -55px;
+        left: -337px;
+    }
+    .index-logo p{
+        top: -62px;
+        left: -329.5px;
+    }
+}
+@media (max-width: 640px){
+    /* Index logo */
+    .index-logo img{
+        top: -30px;
+        left: -411px;
+    }
+    .index-logo .title{
+        top: -95px;
+        left: -337px;
+    }
+    .index-logo p{
+        top: -102px;
+        left: -329.5px;
+    }
+}
+@media only handheld,(max-device-width: 1000px) {
+    body{
+        font-size: 1.7rem;
+    }
+    .index-logo{
+        height: 0;
+    }
+    /* Index logo */
+    .index-logo img{
+        width: 8rem;
+        top: -26px;
+        left: -359px;
+    }
+    .index-logo .title{
+        font-size: 5rem;
+        top: -157px;
+        left: -220px;
+    }
+    .index-logo p{
+        font-size: 2rem;
+        top: -170px;
+        left: -205px;
+    }
+    .container-menu{
+        height: 150px;
+    }
+    .wrapper-menu{
+        height: 0;
+        width: 100%;
+    }
+    .article{
+        width: 100%;
+    }
+    .article .title{
+        font-size: 3rem;
+    }
+    .article .title{
+        width: 90%;
+    }
+    .article .descript{
+        font-size: 2rem;
+    }
 }

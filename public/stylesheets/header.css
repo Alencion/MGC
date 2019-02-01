@@ -45,6 +45,7 @@
 @media handheld, (max-device-width: 1000px){
     .wrapper-header{
         height: 0;
+        display: none;
     }
     .header{
         transform: translateY(-40px);

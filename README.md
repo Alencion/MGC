@@ -6,7 +6,7 @@
 
 #### 기능 ####
 
-- index.js (index.pug)
+- hamburger.js (index.pug)
 - authorization.js (signin, signup)
 - userview.js (mypage)
 - article.js (article, wirte)
