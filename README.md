@@ -8,7 +8,9 @@ Steam Community is CSE GameMania Community!
 
 #### If you want join
 
-steam-rhqnrdl625742461.codeanyapp.com/
+```
+http://34.80.6.83:3000/auth/signup
+```
 
 enter the site and signup for us!
 you can sign in this page and enjoy the community
