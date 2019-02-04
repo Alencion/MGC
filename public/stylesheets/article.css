@@ -95,7 +95,7 @@
     margin: 0 auto;
     display: block;
     width: 1000px;
-    min-height: 300px;
+    min-height: 450px;
     background-color: #fff;
     border-spacing: 0px;
     box-shadow: 0 0 11px 2px rgba(80,80,80,.2);
@@ -123,6 +123,9 @@
     border-top: 1px dashed darkgray;
     line-height: 2rem;
 }
+.article .descript p{
+    word-break:break-all;
+}
 /* disqus */
 #disqus_thread{
     max-width: 1000px !important;
@@ -130,11 +133,23 @@
     margin: 0 auto;
 }
 @media (max-width: 1000px){
+    .wrapper-menu{
+        width: 100%;
+    }
     .wrapper-menu .menu{
         display: none;
     }
     .board{
         width: 100%;
+    }
+    .article{
+        width: 100%;
+    }
+    .article .title{
+        width: 80%;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
     }
 }
 @media (max-width: 1000px) and (min-width: 640px) {
@@ -166,47 +181,8 @@
         top: -102px;
         left: -329.5px;
     }
-}
-@media only handheld,(max-device-width: 1000px) {
-    body{
-        font-size: 1.7rem;
-    }
-    .index-logo{
-        height: 0;
-    }
-    /* Index logo */
-    .index-logo img{
-        width: 8rem;
-        top: -26px;
-        left: -359px;
-    }
-    .index-logo .title{
-        font-size: 5rem;
-        top: -157px;
-        left: -220px;
-    }
-    .index-logo p{
-        font-size: 2rem;
-        top: -170px;
-        left: -205px;
-    }
-    .container-menu{
-        height: 150px;
-    }
-    .wrapper-menu{
-        height: 0;
-        width: 100%;
-    }
-    .article{
-        width: 100%;
-    }
-    .article .title{
-        font-size: 3rem;
-    }
-    .article .title{
-        width: 90%;
-    }
-    .article .descript{
-        font-size: 2rem;
+    #disqus_thread{
+        box-sizing: border-box;
+        margin: 0 20px;
     }
 }

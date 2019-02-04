@@ -1,13 +1,10 @@
-body,html{
-    height: 100%;
-}
 .btn-hamburger{
     cursor: pointer;
     display: none;
     width: 50px;
     height: 50px;
     position: absolute;
-    top: 55px;
+    top: 10px;
     right: 40px;
     border-radius: 15%;
     transition: .5s;
@@ -25,8 +22,8 @@ body,html{
 }
 .wrapper-hamburger{
     width: 100%;
-    height: 100%;
-    display: block;
+    height: 100vh;
+    display: none;
     position: fixed;
     color: #fff;
     z-index: -1;
@@ -38,11 +35,12 @@ body,html{
 .wrapper-hamburger.toggle-active{
     z-index: 1;
     opacity: 1;
+    display: block;
     background-color: rgba(23, 22, 23, 0.38);
 }
 .hamburger{
     width: 300px;
-    height: 100%;
+    height: 100vh;
     display: block;
     position: fixed;
     background-color: #444444;
@@ -50,6 +48,7 @@ body,html{
     top: 0;
     left: 0;
     border-right: 2px solid #444444;
+    overflow-y: scroll;
 }
 .hamburger h2{
     display: inline-block;
@@ -78,14 +77,8 @@ body,html{
     background-color: #262626;
     color: #fff;
 }
-@media (max-width: 1000px) and (min-width: 640px) {
+@media (max-width: 1200px){
     .btn-hamburger{
         display: inline-block;
-    }
-}
-@media (max-width: 640px) {
-    .btn-hamburger{
-        display: inline-block;
-        top:15px;
     }
 }

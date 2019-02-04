@@ -7,27 +7,16 @@ html
     link(rel='stylesheet', href='/stylesheets/footer.css')
     link(href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(type="text/javascript" src="/scripts/header.js")
     script(type="text/javascript" src="/scripts/hamburger.js")
+    meta(name="viewport" content="width=device-width")
   body
     block header
       include header.pug
     block content
       .index-logo
-        img(src="/images/index-logo.png")
         h1.title= title
         p 충남대 커뮤니티
-
-      .wrapper-menu
-        ul.menu
-          li
-            a#commnunity(href="./board/university/page=1") 대학게시판
-          li
-            a#board(href="./board/page=1") Board
-          li
-            a#potal(href="http://portal.cnu.ac.kr/") Portal
-          li
-            a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
-      include hamburger
 
       div.content
         .section-list.university
@@ -37,6 +26,7 @@ html
               li
                 a(href = "./article/id=" + item_university.id)
                   .item
+                    span.image 이미지없음
                     span.item-title= item_university.title
                     span.item-date= item_university.created_date
                     span.item-writer= item_university.user.name
@@ -50,6 +40,7 @@ html
               li
                 a(href = "./article/id=" + item_board.id)
                   .item
+                    span.image 이미지없음
                     span.item-title= item_board.title
                     span.item-date= item_board.created_date
                     span.item-writer= item_board.user.name

@@ -1,14 +1,39 @@
 .wrapper-header
-    .header
-        a.home(href="/") Home
-        a.about(href="#") About
+    .header-menu
+        a.logo(href="/")
+            img(src="/images/index-logo.png")
+            h1.title Steam
+        include hamburger.pug
+        .home.menu
+            a Home
+        .about.menu
+            a About
+        .category.menu
+            a Category
+        .router.menu
+            a 관련사이트
+        .auth.menu
+            a Sign
+
+    .menu-content
+        .home
+            a(href="/") Home
+            a(href="#") 공지사항
+        .about
+            a(href="#") About
+            a(href="#") Contect - Us
+        .category
+            a#commnunity(href="/board/university/page=1") 대학게시판
+            a#board(href="/board/page=1") 자유게시판
+        .router
+            a#potal(href="http://portal.cnu.ac.kr/") 충남대포털
+            a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
         if isNotSignedIn
-            .auth#isNotloggedin
-                a(href="/auth/signin") Sign-In
-                a(href="/auth/signup") Sign-Up
-        if isSignedIn
-            .auth#loggedin
-                label #{username}님 환영합니다.
-                a(href="/mypage") My Page
-                a(href="http://computer.cnu.ac.kr/" target="_blank") 과홈페이지
-                a(href="/auth/signout") signout
+            .auth
+                a(href="/auth/signin") Sign - In
+                a(href="/auth/signup") Sign - Up
+        else
+            .auth
+               a(href="/mypage") My Page
+               a(href="http://computer.cnu.ac.kr/" target="_blank") 학과홈페이지
+               a(href="/auth/signout") Sign - Out

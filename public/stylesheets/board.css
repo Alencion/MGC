@@ -116,10 +116,12 @@
 table .id, table .writer, table .view{
     width: 50px;
     text-align: center;
+    transition: .5s;
 }
 table .date{
     width: 80px;
     text-align: center;
+    transition: .5s;
 }
 .table_body{
     height: 35px;
@@ -166,8 +168,12 @@ table .date{
     float: right;
 }
 @media (max-width: 1000px){
+    .wrapper-menu{
+        width: 100%;
+    }
     .wrapper-menu .menu{
         display: none;
+
     }
     .board{
         width: 100%;
@@ -205,79 +211,7 @@ table .date{
     .wrapper-menu .menu{
         display: none;
     }
-}
-@media (max-width: 507px){
-    /* Index logo */
-    .index-logo img{
-        top: 10px;
-        left: -411px;
-    }
-    .index-logo .title{
-        top: -55px;
-        left: -337px;
-    }
-    .index-logo p{
-        top: -62px;
-        left: -329.5px;
-    }
-}
-
-@media only handheld,(max-device-width: 1000px) {
-    body{
-        font-size: 2rem;
-    }
-
-    /* Index logo */
-    .index-logo img{
-        width: 8rem;
-        top: -26px;
-        left: -359px;
-    }
-    .index-logo .title{
-        font-size: 5rem;
-        top: -157px;
-        left: -220px;
-    }
-    .index-logo p{
-        font-size: 2rem;
-        top: -170px;
-        left: -205px;
-    }
-    .container-menu{
-        height: 150px;
-    }
-    .wrapper-menu{
-        width: 100%
-    }
-    .board h2{
-        font-size: 3rem;
-        padding-left: 20px;
-        border-left: 5px solid black;
-        margin: 40px 20px 20px;
-    }
-    .board table{
-        width: 100%;
-        font-size: 2rem;
-        font-family: 'Nanum Gothic', serif;
-    }
-    .board th{
-        padding: 10px;
-    }
-    table .date, table .view{
+    table .view, table .date{
         display: none;
-    }
-    .table_body .title a{
-        text-decoration: none;
-    }
-    .table_body{
-        height: 70px;
-    }
-    .pagination li a{
-        min-width: 48px;
-    }
-    #write-btn{
-        font-size: 2rem;
-        right: 5%;
-        position: absolute;
     }
 }

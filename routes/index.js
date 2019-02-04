@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var {User, Article, Category} = require('../models');
+var {User, Article} = require('../models');
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
-  var university = await Article.findAll({
+  const university = await Article.findAll({
     limit: 5,
     include: {
       model: User,
@@ -15,7 +15,7 @@ router.get('/', async (req, res, next) => {
     },
     order:[['id', 'DESC']],
   });
-  var board = await Article.findAll({
+  const board = await Article.findAll({
     limit: 5,
     include: {
       model: User,
@@ -26,24 +26,17 @@ router.get('/', async (req, res, next) => {
     },
     order:[['id', 'DESC']],
   });
-  if(req.isAuthenticated()) {
-    res.render('index', {
-      title: 'Steam' ,
-      isSignedIn: req.isAuthenticated(),
-      isNotSignedIn: !req.isAuthenticated(),
-      username : req.user.name,
-      university : university,
-      board : board,
-    });
-  }
-  else{
-    res.render('index', {
-      title: 'Steam' ,
-      isSignedIn: req.isAuthenticated(),
-      isNotSignedIn: !req.isAuthenticated(),
-      university : university,
-      board : board,
-    });
-  }
+
+  let user_name = null;
+
+  if (req.user != null) user_name = req.user.name;
+  res.render('index', {
+    title: 'Steam' ,
+    isNotSignedIn: !req.isAuthenticated(),
+    username : user_name,
+    university : university,
+    board : board,
+  });
 });
+
 module.exports = router;

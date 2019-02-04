@@ -1,327 +1,96 @@
 @import "style.css";
 @import "hamburger.css";
-/* Index logo */
+/* index-logo */
 .index-logo{
-    width: 100%;
-    height: 250px;
-    background-color: #4472C4;
+    display: flex;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    flex-direction: column;
+    height: 500px;
+    transform-style: inherit;
+    background-image: url("/images/index-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #fff;
 }
-.index-logo img{
-    margin-top: 25px;
-    width: 5rem;
-    position: absolute;
-    top: 101px;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    transition-property: left, top;
-    transition-duration: .5s;
-}
-.index-logo .title{
-    font-size: 4rem;
-    transition: .5s;
-    position: absolute;
-    top: 180px;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    transition-property: left, top;
-    transition-duration: .5s;
+.index-logo h1{
+    font-size: 5rem;
 }
 .index-logo p{
-    font-size: 1rem;
-    position: absolute;
-    top: 218px;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    transition-property: left, top;
-    transition-duration: .5s;
+    font-size: 1.5rem;
 }
-
-/* Menu */
-.wrapper-menu{
-    background-color: #2F5597;
+/*section-list*/
+.section-list{
+    height: auto;
     text-align: center;
-    height: 40px;
-
+    background-color: snow;
 }
-.menu{
+.section-list:nth-child(2n){
+    background-color: #ebebe3;
+    color: #262626;
+}
+.section-list h2{
+    display: inline-block;
+    margin: 30px;
+    font-size: 2.5rem;
+}
+.section-list ul{
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-justify-content: space-around;
+            justify-content: space-around;
+}
+.section-list ul li{
     list-style: none;
-    display: inline-block;
-    height: 40px;
-    z-index: 2;
+    -webkit-flex: 1 1 0;
 }
-.menu li{
-    float: left;
-    height: 40px;
-    overflow: hidden;
-}
-.menu li a{
-    margin: 7px 0;
-    display: inline-block;
+.section-list ul li a{
     text-decoration: none;
-    width: 135px;
-    height: 26px;
-    border-right : 2px solid #fff;
-    line-height: 26px;
-    color: #fff;
-    font-size: 1rem;
 }
-.menu li:last-child a{
-    border-right: none;
-}
-.menu li a:before{
-    content: '';
-    position: absolute;
-    display: block;
-    width: 87px;
-    height: 10px;
-    margin: 0 auto;
-    transform: translate(25px, 28px) scaleX(0);
+.section-list .item{
+    display: grid;
+    grid-template-rows: 60% 20% 10% 10%;
+    align-items: center;
+    margin: 15px auto;
+    width: 250px;
+    height: 300px;
+    border: 1px solid #555355;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
     background-color: #fff;
-    transition: ease .3s;
 }
-.menu li a:hover:before{
-    transform: translate(25px, 28px) scaleX(1);
-}
-.hamburger{
-    
-}
-/* Content */
-.content{
-    margin: 0 auto;
-    background-color: #fff;
-    width: 1000px;
-    box-sizing: content-box;
-    text-align: center;
-    box-shadow: 0 0 11px 2px rgba(80,80,80,.2);
-}
-.content .section-list{
-    display: inline-block;
-    margin-top: 40px;
-    width: 800px;
-    height: 280px;
-    border-top: 1.5px solid #e8e2db;
-    border-left: 1.5px solid #e8e2db;
-    border-right: 1.5px solid #e8e2db;
-
-    position: relative;
-}
-.content .list-title{
+.section-list .item span{
     display: block;
-    padding: 0 15px ;
-    background: #fff;
-    position: absolute;
-    top: -5%;
-    left: 5%;
+    margin: 0 10px;
+    color: #262626;
 }
-.content .board{
-    margin-bottom: 40px;
+.section-list .item .image{
+    margin : 0;
+    width: 100%;
+    height: 100%;
+    background-color: #979797;
 }
-.content ul{
-    margin: 40px 40px;
-}
-.content ul li{
-    display: block;
-}
-/* Content > Item */
-.content .item{
-    text-align: left;
-    margin: 10px 12px;
-    font-family: 'Noto Sans', sans-serif;
-}
-.item span{
-    display: inline-block;
-    font-size: .85rem;
-    color: #63686e;
-    transition: color 0.4s;
-}
-.item:hover span{
-    color: #c40018;
-}
-.item .item-title{
-    width: 520px;
-    font-size: 1rem;
+.section-list .item .item-title{
+    font-size: 1.3rem;
+    font-weight: bold;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
-    color: #2c2727;
 }
-.item > .item-date, .item-writer {
-    margin-left: 10px;
-    transform: translateY(-30%);
+.section-list:nth-child(2n) .item{
+    background-color: #f4f3f3;
 }
-/* Content > Read More*/
-.content .read-more{
-    display: block;
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    background-color: #4472C4;
-    border-bottom: 2.5px solid #2F5597;
-    color: #fff;
-    font-size: 1rem;
-    text-decoration: none;
-    position: absolute;
-    bottom: 0;
-    transition: background-color 0.4s;
+.section-list:nth-child(2n) .read-more{
+    color: #262626;
 }
-.content .read-more:hover{
-    background-color: #2F5597;
-}
-
-@media (max-width: 1000px) and (min-width: 640px) {
-    /* Index logo */
-    .index-logo{
-        text-align: left;
-        height: 0;
-    }
-    .index-logo img{
-        width: 4rem;
-        margin: 0;
-        top: 81px;
-        left: 90px;
-    }
-    .index-logo .title{
-        text-align: left;
-        font-size: 2.5rem;
-        top: 71px;
-        left: 190px;
-    }
-    .index-logo p{
-        font-size: 1rem;
-        top: 98px;
-        left: 190px;
-    }
-    .wrapper-menu{
-        height: 80px;
-    }
-    /* Menu */
-    .menu{
-        margin: 20px 0 ;
-        display: none;
-    }
-    /* Content */
-    .content{
-        width: 100%;
-        height: 85vh;
-    }
-    .content .section-list{
-        width: 640px;
-    }
-    /* Content > Item */
-    .item span{
-        display: none;
-    }
-    .item .item-title{
-        display: inline-block;
-    }
-}
-@media (max-width: 640px){
-    /* Index logo */
-    .index-logo{
-        text-align: left;
-        height: 0;
-    }
-    .index-logo img{
-        width: 4rem;
-        margin: 0;
-        top: 41px;
-        left: 90px;
-    }
-    .index-logo .title{
-        text-align: left;
-        font-size: 2.5rem;
-        top: 31px;
-        left: 190px;
-    }
-    .index-logo p{
-        width: 100px;
-        font-size: 1rem;
-        top: 58px;
-        left: 190px;
-    }
-    .wrapper-menu{
-        height: 80px;
-    }
-    /* Menu */
-    .menu{
-        margin: 20px 0 ;
-        display: none;
-    }
-    /* Content */
-    .content{
-        width: 100%;
-    }
-    .content .section-list{
-        width: 100%;
-    }
-    /* Content > Item */
-    .item span{
-        display: none;
-    }
-    .item .item-title{
-        width: 90%;
-        display: inline-block;
-    }
-}
-@media only handheld,(max-device-width: 1000px) {
-
-    /* Index logo */
-    .index-logo{
-        text-align: left;
-    }
-    .index-logo img{
-        width: 8rem;
-        margin: 0;
-        top: 75px;
-        left: 90px;
-    }
-    .index-logo .title{
-        text-align: left;
-        font-size: 5rem;
-        top: 55px;
-        left: 280px;
-    }
-    .index-logo p{
-        font-size: 2rem;
-        top: 110px;
-        left: 280px;
-    }
-    .wrapper-menu{
-        height: 150px;
-    }
-    /* Content */
-    .content{
-        width: 100%;
-    }
-    .content .section-list{
-        width: 100%;
-        border-left: none;
-        border-right: none;
-        margin-top: 90px;
-        height: 35vh;
-    }
-    .content .section-list h2{
-        font-size: 4rem;
-        top: -10%;
-    }
-    .content .section-list ul{
-        margin: 70px 40px 40px
-    }
-    /* Content > Item */
-    .item span{
-        display: none;
-    }
-    .item .item-title{
-        width: 90%;
-        display: inline-block;
-        font-size: 2.5rem;
-    }
-    /* Content > Read More*/
-    .content .read-more{
-        height: 80px;
-        line-height: 80px;
-        border-bottom: 6px solid #2F5597;
-        font-size: 2.5rem;
-    }
+.section-list .read-more{
+    margin: 20px;
+    display: inline-block;
 }

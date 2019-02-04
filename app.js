@@ -15,7 +15,7 @@ var boardRouter = require('./routes/board');
 var articleRouter = require('./routes/article');
 
 var passportConfig = require('./passport');
-
+``
 var sequelize = require('./models').sequelize;
 
 
