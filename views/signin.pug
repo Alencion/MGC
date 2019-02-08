@@ -1,21 +1,26 @@
-extends signin-layout
+doctype html
+html
+  head
+    title Steam
+    link(rel='stylesheet', href='/stylesheets/signin.css')
+    link(href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet")
+  body
+    block content
+      img(src="../images/signin-bg.jpg")
 
-block content
-  img(src="/images/signin-bg.jpg")
+      .wrapper-signin
+        form#signin.signin(method="post" action="/auth/signin")
+          h2.signin-logo Steam
+          .userid
+            input(type="text" name="client_id" required autofocus)
+            label Username
+          .password
+            input(type="password" name="client_pw" required)
+            label Password
+          a.lost-pw(href="./lostpw") forget your password?
+          if loginError
+            .error-message= loginError
+          input(type="submit" value="Sign In")
 
-  .wrapper-signin
-    form#signin.signin(method="post" action="/auth/signin")
-      h2.signin-logo Steam
-      .userid
-        input(type="text" name="client_id" required autofocus)
-        label Username
-      .password
-        input(type="password" name="client_pw" required)
-        label Password
-      a.lost-pw(href="./lostpw") forget your password?
-      if loginError
-        .error-message= loginError
-      input(type="submit" value="Sign In")
-
-    span.signin-signup Don't have an account?
-      a(href="./signup") Sign Up
+          span.signin-signup Don't have an account?
+            a(href="./signup") Sign Up

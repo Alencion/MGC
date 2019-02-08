@@ -1,29 +1,67 @@
-extends article-layout
+doctype html
+html
+   head
+      title= title
+      link(rel='stylesheet', href='/stylesheets/article.css')
+      link(rel='stylesheet', href='/stylesheets/header.css')
+      link(rel='stylesheet', href='/stylesheets/footer.css')
+      link(href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet")
+      script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+      script(type="text/javascript" src="../../scripts/hamburger.js")
+   body
+      block header
+         include header.pug
+      block content
+         .container-menu
+            .wrapper-menu
+               .index-logo
+                  img(src="/images/index-logo.png")
+                  h1.title Steam
+                  p 충남대 커뮤니티
+               ul.menu
+                  li
+                     a#commnunity(href="/board/university/page=1") 대학게시판
+                  li
+                     a#board(href="/board/page=1") Board
+                  li
+                     a#potal(href="http://portal.cnu.ac.kr/") Portal
+                  li
+                     a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
+         include hamburger.pug
 
-block content
-   .container-menu
-      .wrapper-menu
-         .index-logo
-            img(src="/images/index-logo.png")
-            h1.title Steam
-            p 충남대 커뮤니티
-         ul.menu
-            li
-               a#commnunity(href="http://localhost:3000/board/university/page=1") 대학게시판
-            li
-               a#board(href="http://localhost:3000/board/page=1") Board
-            li
-               a#potal(href="http://portal.cnu.ac.kr/") Portal
-            li
-               a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
+         .wrapper-article
+            .article
+               h2.title #{article_title}
+               .info
+                  p views : #{view}
+                  p create_date : #{created_date}
+                  p writer : #{writer}
+               .descript
+                  p #{description}
 
-   .wrapper-article
-      .article
-         h2.title #{article_title}
-         .info
-            p views : #{view}
-            p create_date : #{created_date}
-            p writer : #{writer}
-         .descript
-            p #{description}
+         #disqus_thread
+         script.
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+            /*
+            var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() { // DON'T EDIT BELOW THIS LINE
+               var d = document, s = d.createElement('script');
+               s.src = 'https://steamdisqus.disqus.com/embed.js';
+               s.setAttribute('data-timestamp', +new Date());
+               (d.head || d.body).appendChild(s);
+            })();
+         noscript
+            | Please enable JavaScript to view the
+            a(href='https://disqus.com/?ref_noscript') comments powered by Disqus.
 
+
+
+
+block footer
+         include footer.pug

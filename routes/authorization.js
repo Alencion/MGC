@@ -1,6 +1,10 @@
 var express = require('express');
 var passport = require('passport');
 var bcrypt = require('bcrypt');
+var crypto = require('crypto');
+var nodemailer = require('nodemailer');
+var async = require('async');
+
 var {isLoggedIn, isNotLoggedIn} = require('./middlewares');
 var {User} = require('../models');
 var {tmpUser} = require('../models');
@@ -26,7 +30,7 @@ router.get('/lostpw', function (req, res, next) {
         user:req.user
     });
 });
-router.get('/reset', function(req, res, next){;
+router.get('/reset=:token', function(req, res, next){;
     res.render('reset',{
         user:req.user
     });
@@ -78,8 +82,104 @@ router.post('/signup',isNotLoggedIn, async(req, res, next)=>{
     res.send('POST request to the homepage');
 });
 
-router.post('/lostpw',isNotLoggedIn,  async (req, res, next)=> {
-    try {
+router.post('/lostpw',isNotLoggedIn,  (req, res, next)=> {
+    async.waterfall([
+        function(done){
+            crypto.randomBytes(20, function(err, buf){
+                var token = buf.toString('hex');
+                done(err, token);
+            });
+        },
+        function(token, done){
+            User.find({where:{e_mail:req.body.e_mail}}).then((user) => {
+                if(!user){
+                    req.flash('loginError', '존재하지 않는 계정입니다.');
+                    return res.redirect('/auth/signin');
+                }
+
+                user.resetPasswordToken = token;
+                user.resetPasswordExpires = Date.now() + 360000;
+                user.save(function(){
+                    done(null,token,user);
+                });
+                done(null,token,user);
+            })
+                .catch((err)=>{
+                    done(err, token, user);
+                })
+        },
+        function(token, user, done) {
+            let transporter = nodemailer.createTransport({
+                service: 'Gmail',
+                auth: {
+                    type: 'OAuth2',
+                    user: 'nodejsrinha7@gmail.com',
+                    clientId: ' 1022777822318-b873do2uaevhdgnecel0km7b8nuu4ug0.apps.googleusercontent.com ',
+                    clientSecret: 'OsH9y7rn1d1mHMXulc31ojQE',
+                    refreshToken: '1/pK0PM7XimsXjTJdet2JQX8O89I1kMRHjzjTwDq48iTw',
+                    accessToken : 'ya29.GluiBiM-fDD2vqVCWstJZLvhoaxsBZgwKuc_Sa67tsxaHVnbmYuLL60TGagd30C79ViDiNLHeM5qbJ9yqrDzu3F8UiPzenm8v94iluQwT7lnfDOoPH71dsOzrJHD',
+                    expires: 3600
+                }
+            });
+            let mailOptions = {
+                from: {
+                    name: 'cnuSteamManager',
+                    address: 'nodejsrinha7@gmail.com'
+                },
+                to: {
+                    address: user.e_mail
+                },
+                subject: 'CNU-Steam Page Password Reset',
+                text : 'You have to reset password with this site\n\n'+
+                    'http://'+req.headers.host+'/auth/reset='+token+'\n\n'+
+                    'it expried in 1 hours'
+            };
+            transporter.sendMail(mailOptions, function(err){
+                req.flash('loginerror', 'An e-mail has benn sent to you! check your e-mail');
+                done(err,done);
+            });
+        }
+        ], function (err) {
+        if (err) return next(err);
+        res.redirect('/auth/lostpw');
+    });
+});
+
+router.post('/reset=:token', function(req, res){
+    async.waterfall([
+       function(done) {
+            console.log(req.params.token);
+            User.findOne({
+                resetPasswordToken: req.params.token,
+                resetPasswordExpires: {$gt: Date.now()}
+            }).then((user)=> {
+                console.log(user);
+                if (!user) {
+                    req.flash('loginerror', '패스워드 변경이 허가되지 않았습니다.');
+                    return res.redirect('/auth/signin');
+                }
+                user.password = req.body.password;
+                user.resetPasswordToken = undefined;
+                user.resetPasswordExpires = undefined;
+                bcrypt.hash(user.password, 12, function(err, result){
+                    console.log(result);
+                    User.update({
+                        client_pw: result,
+                    },{
+                        where:{id:user.id},
+                    });
+                })
+                done(null,done);
+            });
+        },
+    ], function(err){
+        res.redirect('/auth/signin');
+    });
+});
+
+
+
+    /*try { // 원래 lostpw 구문
         exUser = await User.find({where: {e_mail: req.body.e_mail}});
         if (!exUser) {
             req.flash('loginError', '존재하지 않는 계정입니다.');
@@ -90,8 +190,8 @@ router.post('/lostpw',isNotLoggedIn,  async (req, res, next)=> {
     }catch(error){
         console.error(error);
         return next(error);
-    }(req,res,next);
-});
+    }(req,res,next);*/
+/* 원래 reset 구문
 router.post('/reset', isNotLoggedIn, async(req,res,next)=>{
     try {
         if (!tmpUser) {
@@ -110,6 +210,6 @@ router.post('/reset', isNotLoggedIn, async(req,res,next)=>{
         console.error(error);
         return next(error);
     }
-})
-
+});
+*/
 module.exports = router;

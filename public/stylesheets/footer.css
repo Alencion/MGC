@@ -13,3 +13,8 @@
     display: inline-block;
     line-height: 100px;
 }
+@media handheld, (max-device-width: 1000px){
+    .footer label{
+        font-size: 2rem;
+    }
+}

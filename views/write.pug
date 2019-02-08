@@ -1,12 +1,24 @@
-extends write-layout
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/write.css')
+        link(rel='stylesheet', href='/stylesheets/header.css')
+        link(rel='stylesheet', href='/stylesheets/footer.css')
+        link(href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet")
+    body
+        block header
+            include header.pug
+        block content
+            .wrapper-write
+                label Write
+                form.write(method="post" action="./write")
+                    input.title(type="text" name="title" placeholder="Title" required)
+                    textarea.descript(name="description" contenteditable="true")
+                    select.category(name="category")
+                        option(value=2) 자유게시판
+                        option(value=1) 대학게시판
+                    input.submit(type="submit")
+        block footer
+            include footer.pug
 
-block content
-    .wrapper-write
-        label Write
-        form.write(method="post" action="./write")
-            input.title(type="text" name="title" placeholder="Title" required)
-            textarea.descript(name="description" contenteditable="true")
-            select.category(name="category")
-                option(value=2) 자유게시판
-                option(value=1) 대학게시판
-            input.submit(type="submit")

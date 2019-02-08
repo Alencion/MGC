@@ -13,8 +13,9 @@ router.get('/', isLoggedIn, async (req, res, next) => {
     res.render('mypage',{
         title : 'MyPage',
         username : req.user.name,
-        univcount:UnivCount.count,
-        freecount:FreeCount.count,
+        email : req.user.e_mail,
+        universityCount:UnivCount.count,
+        boardCount:FreeCount.count,
     });
 });
 

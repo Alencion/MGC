@@ -1,57 +1,70 @@
-extends board-layout
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/board.css')
+        link(rel='stylesheet', href='/stylesheets/header.css')
+        link(rel='stylesheet', href='/stylesheets/footer.css')
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css")
+        link(href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu|Nanum+Gothic" rel="stylesheet")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+        script(type="text/javascript" src="../../scripts/isLoggedIn.js")
+        script(type="text/javascript" src="../../scripts/pagination.js")
+        script(type="text/javascript" src="../../scripts/hamburger.js")
+    body
+        block header
+            include header.pug
 
-block content
-    .container-menu
-        .wrapper-menu
-            .index-logo
-                img(src="/images/index-logo.png")
-                h1.title Steam
-                p 충남대 커뮤니티
-            ul.menu
-                li
-                    a#commnunity(href="http://localhost:3000/board/university/page=1") 대학게시판
-                li
-                    a#board(href="http://localhost:3000/board/page=1") Board
-                li
-                    a#potal(href="http://portal.cnu.ac.kr/") Portal
-                li
-                    a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
-    .board
-        h2= title
-        table(cellspacing="0")
-            thead
-                tr.table_head
-                    th.id Index
-                    th.title 제목
-                    th.writer 글쓴이
-                    th.view 조회수
-                    th.date 날짜
-            tbody
-                for article in articles
-                    tr.table_body
-                        td.id= article.id
-                        td.title
-                            a(href="http://localhost:3000/article/id="+article.id)= article.title
-                        td.writer= article.user.name
-                        td.view= article.view
-                        td.date= article.created_date
-        input#write-btn(type="button" value="글쓰기" onclick="btn()")
-        .wrapper-pagination
-            ul.pagination
-                -var pageindex = index;
-                -var i = 1;
-                -var c = 1;
-                -if(index > 5)
-                    - i = pageindex - 4;
-                li
-                    a(href="./page=1") <<
+        block content
+            .container-menu
+                .wrapper-menu
+                    .index-logo
+                        img(src="/images/index-logo.png")
+                        h1.title Steam
+                        p 충남대 커뮤니티
+                    ul.menu
+                        li
+                            a#commnunity(href="/board/university/page=1") 대학게시판
+                        li
+                            a#board(href="/board/page=1") Board
+                        li
+                            a#potal(href="http://portal.cnu.ac.kr/") Portal
+                        li
+                            a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
+            include hamburger.pug
+            .board
+                h2= title
+                table(cellspacing="0")
+                    thead
+                        tr.table_head
+                            th.id Index
+                            th.title 제목
+                            th.writer 글쓴이
+                            th.view 조회수
+                            th.date 날짜
+                    tbody
+                        for article in articles
+                            tr.table_body
+                                td.id= article.id
+                                td.title
+                                    a(href="http://localhost:3000/article/id=" + article.id)= article.title
+                                td.writer= article.user.name
+                                td.view= article.view
+                                td.date= article.created_date
 
-                - while( i <= count)
-                    li
-                        a(href="./page="+i id=""+i) #{i}
-                    -if( c == 9 )
-                        -break
-                    - i = i+1
-                    - c = c+1
-                li
-                    a(href="./page="+count) >>
+                input#write-btn(type="button" value="글쓰기" onclick="btn()")
+                .wrapper-pagination
+                    ul.pagination
+                        li
+                            a(href="./page=1") <<
+
+                        - for(var it= (index>5)? (index-4):1, pageCount=1; it <= count; it++,pageCount++)
+                            li
+                                a(href="./page=" + it id="" + it) #{it}
+                            -if( pageCount == 9 )
+                                -break
+                        li
+                            a(href="./page=" + count) >>
+        block footer
+            include footer.pug
+
