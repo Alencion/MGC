@@ -1,21 +1,27 @@
-### Nodejs Document ###
+### CNU CSE Steam Commnunity! ###
 
-#### main ####
+#### Welcome!
 
-- app.js
+```
+Steam Community is CSE GameMania Community!
+```
 
-#### 기능 ####
+#### If you want join
 
-- hamburger.js (index.pug)
-- authorization.js (signin, signup)
-- userview.js (mypage)
-- article.js (article, wirte)
-- board.js (board)
 
-#### view ####
+```
+http://34.80.6.83:3000/auth/signup
+```
 
-- index – Index.js
-- authorization – signin, (post_signin), signup, (post_signup)
-- userview – mypage
-- article – article, write, (post_write)
-- board - board
+enter the site and signup for us!
+you can sign in this page and enjoy the community
+
+#### made by
+
+15_CSE Alencion, Rinha7
+
+### website address
+
+```
+http://34.80.6.83:3000/  or  http://bit.ly/CNUsteam
+```
