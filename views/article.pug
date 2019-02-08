@@ -21,10 +21,9 @@ html
                   p 조회수 : #{view}
                   p 생성날짜 : #{created_date}
                   p 글쓴이 : #{writer}
-               .descript
-                  p #{description}
+               .descript !{description}
 
-         #disqus_thread
+         //#disqus_thread
          script.
             /**
              *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -45,8 +44,5 @@ html
             | Please enable JavaScript to view the
             a(href='https://disqus.com/?ref_noscript') comments powered by Disqus.
 
-
-
-
-block footer
+      block footer
          include footer.pug
