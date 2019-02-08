@@ -3,7 +3,7 @@ var router = express.Router();
 var {User, Article} = require('../models');
 var model = require('../models');
 var multer = require('multer');
-var {isLoggedIn, isNotLoggedIn} = require('./middlewares');
+var {isLoggedIn} = require('./middlewares');
 
 
 /* GET article, write page. */
@@ -32,6 +32,7 @@ router.get('/id=:id' , async(req, res, next) => {
         writer : article.user.name,
         description : article.description,
     });
+    console.log(article.description);
 });
 
 //Write Function Rotuer!
@@ -46,8 +47,8 @@ router.get('/write', function (req, res, next) {
     });
 });
 /* POST write page. */
-var upload = multer();
-router.post('/write', isLoggedIn, upload.none(), async(req, res, next)=>{
+// var upload = multer();
+router.post('/write', isLoggedIn, async(req, res, next)=>{
     try{
         await Article.create({
             title: req.body.title,
