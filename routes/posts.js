@@ -1,3 +1,5 @@
+/*(미완성) 게임 관련 Post에 대한 정보를 담는 Post에 대한 router입니다. */
+
 const express = require('express');
 
 const { Post, Hashtag, User } = require('../models');

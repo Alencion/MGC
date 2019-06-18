@@ -1,3 +1,5 @@
+// db의 관계를 설정합니다.
+
 var path = require('path');
 var Sequelize = require('sequelize');
 

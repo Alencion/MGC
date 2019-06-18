@@ -1,3 +1,5 @@
+// db에서 category table을 불러옵니다.
+
 module.exports = (sequelize, DataTypes) => {
     return sequelize.define('category', {
         category: {

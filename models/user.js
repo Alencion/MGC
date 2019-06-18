@@ -1,3 +1,4 @@
+// Nodejs에서 User Table을 조회하는 model.
 module.exports = (sequelize, DataTypes) => {
     return sequelize.define('user', {
         client_id: {

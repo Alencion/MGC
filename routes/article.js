@@ -1,3 +1,8 @@
+// 게시판 글 페이지로 연결해주는 라우터입니다
+// 게시판 번호에 따라 다른 타입으로 연결합니다.
+// 게시판이 자유게시판인 경우 단순한 글쓰기 및 댓글기능으로
+// 그렇지 않다면 게임토론 게시판으로 이동합니다.(미구현)
+
 var express = require('express');
 var router = express.Router();
 var {User, Article, Post} = require('../models');

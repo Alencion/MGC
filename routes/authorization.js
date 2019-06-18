@@ -1,3 +1,5 @@
+//회원가입을 담당하는 부분입니다.
+
 var express = require('express');
 var passport = require('passport');
 var bcrypt = require('bcrypt');
@@ -11,7 +13,7 @@ var {tmpUser} = require('../models');
 
 var router = express.Router();
 
-/* GET SignIn, SignUp page. */
+/* GET SignIn, SignUp page.(GET방식에 대한 정의) */
 router.get('/signin', function (req, res, next) {
     res.render('signin',{
         loginError:req.flash('loginError'),
@@ -38,6 +40,7 @@ router.get('/reset=:token', function(req, res, next){;
 
 /* POST SignIn, SignUp page. */
 router.post('/signin', isNotLoggedIn, (req, res, next)=>{
+    /* sigin post의 경우, login 처리를 담당합니다.  */
     passport.authenticate('local', (authError, user ,info)=>{
         if(authError){
             console.error(authError);
@@ -59,6 +62,7 @@ router.post('/signin', isNotLoggedIn, (req, res, next)=>{
 });
 
 router.post('/signup',isNotLoggedIn, async(req, res, next)=>{
+    // 회원 가입을 눌렀을 때의 동작을 정의.
     var {client_id, client_pw, name, e_mail} = req.body;
     try {
         var exUser = await User.find({where: {client_id}});
@@ -73,7 +77,7 @@ router.post('/signup',isNotLoggedIn, async(req, res, next)=>{
             name,
             e_mail,
         });
-        return res.redirect('/');
+        return res.redirect('/'); // 회원가입 완료 시 메인페이지로 이동.
     }
     catch(error){
          console.error(error);
@@ -82,7 +86,9 @@ router.post('/signup',isNotLoggedIn, async(req, res, next)=>{
     res.send('POST request to the homepage');
 });
 
+/* Post Find password Page */
 router.post('/lostpw',isNotLoggedIn,  (req, res, next)=> {
+    /* 비밀번호 찾기를 눌렀을 때 동작 정의. */
     async.waterfall([
         function(done){
             crypto.randomBytes(20, function(err, buf){
@@ -90,7 +96,7 @@ router.post('/lostpw',isNotLoggedIn,  (req, res, next)=> {
                 done(err, token);
             });
         },
-        function(token, done){
+        function(token, done){ // db에서 해당 유저 있는지 찾습니다.
             User.find({where:{e_mail:req.body.e_mail}}).then((user) => {
                 if(!user){
                     req.flash('loginError', '존재하지 않는 계정입니다.');
@@ -108,7 +114,7 @@ router.post('/lostpw',isNotLoggedIn,  (req, res, next)=> {
                     done(err, token, user);
                 })
         },
-        function(token, user, done) {
+        function(token, user, done) { // nodemailer모듈과 구글 Gmail API를 이용하여 유효 Hash를 담고 있는 메일을 발송합니다.
             let transporter = nodemailer.createTransport({
                 service: 'Gmail',
                 auth: {
@@ -118,10 +124,10 @@ router.post('/lostpw',isNotLoggedIn,  (req, res, next)=> {
                     clientSecret: 'OsH9y7rn1d1mHMXulc31ojQE',
                     refreshToken: '1/pK0PM7XimsXjTJdet2JQX8O89I1kMRHjzjTwDq48iTw',
                     accessToken : 'ya29.GluiBiM-fDD2vqVCWstJZLvhoaxsBZgwKuc_Sa67tsxaHVnbmYuLL60TGagd30C79ViDiNLHeM5qbJ9yqrDzu3F8UiPzenm8v94iluQwT7lnfDOoPH71dsOzrJHD',
-                    expires: 3600
+                    expires: 3600 // 유효기간을 3600초, 1시간으로 정합니다.
                 }
             });
-            let mailOptions = {
+            let mailOptions = { // 메일에 넣을 내용을 정의합니다.
                 from: {
                     name: 'cnuSteamManager',
                     address: 'nodejsrinha7@gmail.com'
@@ -146,6 +152,7 @@ router.post('/lostpw',isNotLoggedIn,  (req, res, next)=> {
 });
 
 router.post('/reset=:token', function(req, res){
+    // 유효한 메일링크에는 token이 들어있습니다. 알맞은 token을 통해 링크를 들어오면 비밀번호를 변경할 수 있는 권리를 줍니다.
     async.waterfall([
        function(done) {
             console.log(req.params.token);

@@ -1,9 +1,12 @@
+/* main page의 redirection을 담당하는 js파일입니다. */
+
 var express = require('express');
 var router = express.Router();
 var {User, Article, Category} = require('../models');
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
+  // 각 게시판의 데이터를 상위 5개 가져와 메인 페이지에 표시되도록 합니다.
   var university = await Article.findAll({
     limit: 5,
     include: {
