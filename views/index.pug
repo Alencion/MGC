@@ -20,7 +20,7 @@ html
       .wrapper-menu
         ul.menu
           li
-            a#commnunity(href="./board/university/page=1") 대학게시판
+            a#commnunity(href="./board/university/page=1") 게임게시판
           li
             a#board(href="./board/page=1") Board
           li
@@ -31,7 +31,7 @@ html
 
       div.content
         .section-list.university
-          h2.list-title.university 대학게시판
+          h2.list-title.university 게임게시판
           ul
             each item_university in university
               li
@@ -41,7 +41,7 @@ html
                     span.item-date= item_university.created_date
                     span.item-writer= item_university.user.name
 
-          a.read-more(href = "./board/university/page=1") Read More
+          a.read-more(href = "./board/game/page=1") Read More
 
         .section-list.board
           h2.list-title.board-title 자유게시판

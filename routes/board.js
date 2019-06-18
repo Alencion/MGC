@@ -45,7 +45,7 @@ router.get('/page=:page', async (req, res, next) =>{
         });
 });
 /* GET university board page. */
-router.get('/university/page=:page', async (req, res, next)=>{
+router.get('/game/page=:page', async (req, res, next)=>{
     var Count = await Article.findAndCountAll({ where : {
             boardname: 1,
         }});
@@ -66,7 +66,7 @@ router.get('/university/page=:page', async (req, res, next)=>{
             var index = req.params.page;
             if(req.isAuthenticated()) {
                 res.render('board',{
-                    title : '대학게시판',
+                    title : '게임게시판',
                     isSignedIn: req.isAuthenticated(),
                     isNotSignedIn: !req.isAuthenticated(),
                     username : req.user.name,
@@ -77,7 +77,7 @@ router.get('/university/page=:page', async (req, res, next)=>{
             }
             else {
                 res.render('board',{
-                    title : '대학게시판',
+                    title : '게임게시판',
                     isSignedIn: req.isAuthenticated(),
                     isNotSignedIn: !req.isAuthenticated(),
                     articles : Article,

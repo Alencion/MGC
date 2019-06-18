@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var {User, Article} = require('../models');
+var {User, Article, Post} = require('../models');
 var model = require('../models');
 var multer = require('multer');
 var {isLoggedIn, isNotLoggedIn} = require('./middlewares');
@@ -22,16 +22,34 @@ router.get('/id=:id' , async(req, res, next) => {
     if(req.isAuthenticated()) {
         User = req.user;
     }
-    res.render('article',{
-        isSignedIn: req.isAuthenticated(),
-        isNotSignedIn: !req.isAuthenticated(),
-        username : User.name,
-        article_title : article.title,
-        view : article.view,
-        created_date : article.created_date,
-        writer : article.user.name,
-        description : article.description,
-    });
+    var bname = article.boardname;
+    var posts = await Post.find({where:{ id }});
+
+    console.log(posts);
+    if(bname === 1){
+        res.render('post', {
+            isSignedIn: req.isAuthenticated(),
+            isNotSignedIn: !req.isAuthenticated(),
+            username: User.name,
+            article_title: article.title,
+            view: article.view,
+            created_date: article.created_date,
+            writer: article.user.name,
+            description: article.description,
+        });
+    }
+    else {
+        res.render('article', {
+            isSignedIn: req.isAuthenticated(),
+            isNotSignedIn: !req.isAuthenticated(),
+            username: User.name,
+            article_title: article.title,
+            view: article.view,
+            created_date: article.created_date,
+            writer: article.user.name,
+            description: article.description,
+        });
+    }
 });
 
 //Write Function Rotuer!

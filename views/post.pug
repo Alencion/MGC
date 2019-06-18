@@ -1,0 +1,44 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/article.css')
+        link(rel='stylesheet', href='/stylesheets/header.css')
+        link(rel='stylesheet', href='/stylesheets/footer.css')
+        link(href="https://fonts.googleapis.com/css?family=Noto+Sans|Ubuntu" rel="stylesheet")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+        script(type="text/javascript" src="../../scripts/hamburger.js")
+    body
+        block header
+            include header.pug
+        block content
+            .container-menu
+                .wrapper-menu
+                    .index-logo
+                        img(src="/images/index-logo.png")
+                        h1.title Steam
+                        p 충남대 커뮤니티
+                    ul.menu
+                        li
+                            a#commnunity(href="/board/university/page=1") 대학게시판
+                        li
+                            a#board(href="/game") 게임 게시판.
+                        li
+                            a#potal(href="http://portal.cnu.ac.kr/") Portal
+                        li
+                            a#cnuis(href="http://cnuis.cnu.ac.kr/") 통합정보시스템
+            include hamburger.pug
+
+            .wrapper-article
+                .article
+                    h2.title #{article_title}
+                    .info
+                        p views : #{view}
+                        p create_date : #{created_date}
+                        p writer : #{writer}
+                    .descript
+                        p #{description}
+
+
+block footer
+    include footer.pug

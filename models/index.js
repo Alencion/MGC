@@ -14,12 +14,18 @@ db.Sequelize = Sequelize; // Sequelize 객체 접근명
 db.User = require('./user')(sequelize, Sequelize);
 db.Article = require('./article')(sequelize, Sequelize);
 db.Category = require('./category')(sequelize, Sequelize);
+db.Post = require('./post')(sequelize, Sequelize);
 
 //User와 Article의 관계를 설정해줍니다.
 //hasMany는 값을 넘겨주는 1:N관계의 1의 포지션을 취하는 테이블의 메소드입니다.
 //belongsTo는 foregin키로 값을 받아오는쪽에서 사용하는 메소드입니다.
 db.User.hasMany(db.Article, {foreignKey : 'userId',sourceKey:'id'});
 db.Article.belongsTo(db.User, {foreignKey : 'userId', targetKey:'id'});
+
+// Post에 대한 DB 설정
+db.User.hasMany(db.Post,{foreignKey : 'userId',source:'id'});
+db.Post.belongsTo(db.User,{foreignKey : 'userId',targetKey:'id'});
+
 
 db.Category.hasMany(db.Article, {foreignKey : 'boardname',sourceKey:'id'});
 db.Article.belongsTo(db.Category, {foreignKey : 'boardname', targetKey:'id'});

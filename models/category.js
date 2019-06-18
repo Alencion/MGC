@@ -9,3 +9,4 @@ module.exports = (sequelize, DataTypes) => {
         timestamps:false,
     });
 }
+//insert into categories values(1,'대학게시판');
